@@ -1,5 +1,6 @@
 #import "@preview/a2c-nums:0.0.1": int-to-cn-num
 #import "pages/master-cover.typ": master-cover
+#import "utils/font-settings.typ": font-size
 
 #set page(
   paper: "a4", 
@@ -36,7 +37,8 @@
   font: ("Times New Roman", "Songti SC"),
   lang: "zh",
   region: "cn",
-  size: 12pt  // 小四号 = 12pt
+  weight: "thin",
+  size: font-size.小四  // 小四号 = 12pt
 )
 
 #set par(
@@ -54,7 +56,7 @@
   if not in-appendix {
     if nums.pos().len() == 1 {
       // "第" + int-to-cn-num(nums.pos().first()) + "章"
-      "第" + str(nums.pos().first()) + "章"
+      [第 #str(nums.pos().first()) 章]
       h(0.5em)
     } else {
       numbering(
@@ -87,23 +89,33 @@
 #show heading: it =>  {
     if it.level == 1 {
       set align(center)
-      set text(weight: 700)
+      set text(size: font-size.三号, stroke: 0.8pt, font: ("Times", "Heiti SC"))
+      it
+    } else if it.level == 2{
+      set text(
+        size: font-size.四号, 
+        weight: "thin", 
+        font: ("Times", "Songti SC")
+      )
       it
     } else {
+      set text(
+        size: font-size.小四, 
+        weight: "thin", 
+        font: ("Times", "Songti SC")
+      )
       it
     }
     par()[#text(size:0.5em)[#h(0.0em)]]
-    // fakepar
 }
-
-
 
 
 = 绪论
 
 == 研究背景
 
-
+=== 小节
+文字
 
 == 研究目的及意义
 
