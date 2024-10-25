@@ -1,4 +1,5 @@
 #import "@preview/a2c-nums:0.0.1": int-to-cn-num
+#import "pages/master-cover.typ": master-cover
 
 #set page(
   paper: "a4", 
@@ -10,6 +11,27 @@
   )
 )
 
+#master-cover(
+  中图分类号: "",
+  学校代码: "10533",
+  UDC: "",
+  学位类别: "硕士",
+  论文名称: "学位论文中文题名",
+  title: "学位论文英文题名",
+  作者姓名: "XXX", 
+  一级学科: "一级学科名称",
+  二级学科: "二级学科名称",
+  研究方向: "关键词组",
+  二级培养单位: "XXX",
+  指导教师: "导师姓名",
+  副指导教师: "副导师姓名（必要时，限 1 名）",
+  答辩日期: "", 
+  答辩委员会主席: "", 
+  年: "XXXX", 
+  月: "XX"
+)
+
+// #set heading(numbering: "第1.1章")
 #set text(
   font: ("Times New Roman", "Songti SC"),
   lang: "zh",
@@ -65,31 +87,21 @@
 #show heading: it =>  {
     if it.level == 1 {
       set align(center)
-      set text(weight: "extrabold")
+      set text(weight: 700)
       it
     } else {
       it
     }
     par()[#text(size:0.5em)[#h(0.0em)]]
+    // fakepar
 }
 
 
-// 16pt对应的是三号字体
-// 15pt对应的是小三号字体
-// 14pt对应的是四号字体
-// 12pt对应的是小四号字体
-// 10.5pt对应的是五号字体
 
-
-// #set heading(numbering: "第1.1章")
 
 = 绪论
 
 == 研究背景
-#calc.pow(4, 3)
-
-#let t(q, a) = strong(q) + parbreak() + a
-#highlight(fill: orange)[高亮]
 
 
 
@@ -101,8 +113,36 @@
 
 = 例子
 
-#lorem(100)
+#show raw: rect.with(stroke: blue)
 
+#let word-count(it) = {
+  return it.text.len();
+}
+
+#word-count([word])
+
+#let f(a, b, c) = [#a, #b, #c]
+#let b = text.with(fill: blue)
+
+#rect([hello])
+
+#let matrix-fmt(..args) = [
+  #let a = args.pos()
+  #a.len()
+  #table(columns: a.len(), [#a.at(0)])
+]
+#matrix-fmt((1,2,3),(4,5,6),(7,8,9))
+
+#let cat = (a: 2, "b": 3, attr: [123])
+#for (key, val) in cat {
+  [#key #val]
+}
+
+#text(fill: color.hsl(0deg, 21.05%, 77.65%, 0%))[你好]
+
+#table(columns: 2, align: center,[111],[2],[3],[4])
+
+#text(lorem(100), fill: red)
 
 
 #figure(
