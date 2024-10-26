@@ -35,6 +35,24 @@
   月: "XX"
 )
 
+#counter(page).update(1)
+#set page(
+  header: [
+    #set text(font: font.宋体, size: font-size.五号, stroke: 0.1pt)
+    #box(
+      width: 100%,
+      stroke: (bottom: black),
+      inset: (bottom: 6pt, left: 1.5pt, right: 1.5pt),
+      [中南大学博（硕）士学位论文 #h(1fr) 标题]
+    )
+  ],
+  footer: context [
+    #set align(center)
+    #set text(font: font.Times, size: font-size.小五)
+    #counter(page).display("1")
+  ]
+)
+
 #set par(
   justify: true,          // 两端对齐
   first-line-indent: 2em, // 段前顶格两字符
