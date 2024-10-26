@@ -95,14 +95,14 @@
   月: "XX"
 ) = [
 
-  #_paper-info("中图分类号", 中图分类号, key-width: 17%)
+  #_paper-info("中图分类号", 中图分类号, key-width: 18%)
   #h(2.5fr)
   #_paper-info("学校代码", 学校代码, key-align: right) \ 
-  #_paper-info("UDC", UDC, key-width: 17%)
+  #_paper-info("UDC", UDC, key-width: 18%)
   #h(2.5fr)
   #_paper-info("学位类别", 学位类别, key-align: right)
 
-  #v(font-size.二号, weak: true)
+  #v(font-size.二号, weak: false)
   #_bold-title[#(学位类别)学位论文]
   #v(2em)
   #_bold-title(size: font-size.二号)[#论文名称]
