@@ -1,4 +1,4 @@
-#import "../utils/font-settings.typ": font-size, font
+#import "../utils/font-settings.typ": *
 
 #let _bold-title(body, font_: font.黑体, size: font-size.小二, stroke: 0.6pt) = {
   return align(center)[
@@ -11,11 +11,12 @@
   ]
 }
 
-#let _paper-info(key, val, key-align: left, val-align: center, key-width: auto) = [
+#let _paper-info(key, val, key-align: left, val-align: center, key-width: auto, val-width: 1fr) = [
   #set text(
-        font: font.宋体,
+        font: global-font,
         size: font-size.四号,
         weight: "thin",
+        stroke: 0.2pt,
         bottom-edge: "descender",
       )
   #box(
@@ -24,7 +25,7 @@
     align(key-align)[#key]
   )
   #box(
-    width: 1fr,
+    width: val-width,
     stroke: (bottom: black),
     inset: 1pt,
     align(val-align)[#val]
@@ -79,7 +80,8 @@
   中图分类号: "",
   学校代码: "10533",
   UDC: "",
-  学位类别: "硕士",
+  学位: "硕士",
+  学位类别: "专业学位",
   论文名称: "学位论文中文题名",
   title: "学位论文英文题名",
   作者姓名: "XXX", 
@@ -103,7 +105,7 @@
   #_paper-info("学位类别", 学位类别, key-align: right)
 
   #v(font-size.二号, weak: true)
-  #_bold-title[#(学位类别)学位论文]
+  #_bold-title[#(学位)学位论文]
   #v(2em)
   #_bold-title(size: font-size.二号)[#论文名称]
   #v(1em, weak: true)
@@ -121,9 +123,9 @@
   )
   #v(font-size.四号 * 2, weak: true)
   
-  #_paper-info("论文答辩日期", 答辩日期, key-align: right)
+  #_paper-info("论文答辩日期", 答辩日期, key-align: right, val-width: 3.5fr)
   #h(1fr)
-  #_paper-info("答辩委员会主席", 答辩委员会主席, key-align: right)
+  #_paper-info("答辩委员会主席", 答辩委员会主席, key-align: right, val-width: 2fr)
 
   #v(font-size.四号 * 5, weak: true)
   #set text(font: ("Times", "Songti SC"), size: font-size.小三, weight: "thin")
