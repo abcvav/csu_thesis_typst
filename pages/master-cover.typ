@@ -83,7 +83,7 @@
   学位: "硕士",
   学位类别: "专业学位",
   论文名称: "学位论文中文题名",
-  title: "学位论文英文题名",
+  论文英文名称: "学位论文英文题名",
   作者姓名: "XXX", 
   一级学科: "一级学科名称",
   二级学科: "二级学科名称",
@@ -96,7 +96,15 @@
   年: "XXXX", 
   月: "XX"
 ) = [
-
+  #set page(
+    paper: "a4", 
+    margin: (
+      top: 75pt,
+      bottom: 75pt,
+      left: 90pt,
+      right: 90pt
+    )
+  )
   #_paper-info("中图分类号", 中图分类号, key-width: 18%)
   #h(2.5fr)
   #_paper-info("学校代码", 学校代码, key-align: right) \ 
@@ -109,7 +117,7 @@
   #v(2em)
   #_bold-title(size: font-size.二号)[#论文名称]
   #v(1em, weak: true)
-  #_bold-title(font_: font.Times)[#title]
+  #_bold-title(font_: font.Times)[#论文英文名称]
   #v(font-size.四号 * 2, weak: true)
 
   #_student-info-table(
