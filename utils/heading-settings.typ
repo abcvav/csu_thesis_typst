@@ -5,10 +5,11 @@
     set align(center)
     set text(
       size: font-size.三号, 
-      stroke: 0.2pt, 
+      stroke: 0.1pt, 
       font: font.Times + font.黑体
     )
     pagebreak(weak: true)
+    v(4pt)
     it
   } else if it.level == 2{
     set text(
