@@ -1,9 +1,9 @@
-#import "../utils/font-settings.typ": font-size
+#import "../utils/font-settings.typ": font-size, font
 
-#let _bold-title(body, font: "Heiti SC", size: font-size.小二, stroke: 0.6pt) = {
+#let _bold-title(body, font_: font.黑体, size: font-size.小二, stroke: 0.6pt) = {
   return align(center)[
     #text(
-      font: font,
+      font: font_,
       size: size,
       stroke: stroke,
       body
@@ -13,7 +13,7 @@
 
 #let _paper-info(key, val, key-align: left, val-align: center, key-width: auto) = [
   #set text(
-        font: "Songti SC",
+        font: font.宋体,
         size: font-size.四号,
         weight: "thin",
         bottom-edge: "descender",
@@ -41,7 +41,7 @@
   副指导教师
 ) = [
   #set text(
-    font: "Songti SC", 
+    font: font.宋体, 
     size: font-size.三号, 
     weight: "thin"
   )
@@ -102,13 +102,13 @@
   #h(2.5fr)
   #_paper-info("学位类别", 学位类别, key-align: right)
 
-  #v(font-size.二号, weak: false)
+  #v(font-size.二号, weak: true)
   #_bold-title[#(学位类别)学位论文]
   #v(2em)
   #_bold-title(size: font-size.二号)[#论文名称]
   #v(1em, weak: true)
-  #_bold-title(font: "Times")[#title]
-  #v(font-size.四号 * 2, weak: false)
+  #_bold-title(font_: font.Times)[#title]
+  #v(font-size.四号 * 2, weak: true)
 
   #_student-info-table(
     作者姓名,

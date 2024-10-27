@@ -1,6 +1,7 @@
 #import "@preview/a2c-nums:0.0.1": int-to-cn-num
 #import "pages/master-cover.typ": master-cover
-#import "utils/font-settings.typ": font-size, font
+#import "utils/font-settings.typ": font-size, font, global-font
+#import "utils/heading-settings.typ": heading-setting
 
 // 该信息会嵌入到pdf元信息中，但不会显示在pdf页面中
 #set document(author: "作者姓名", date: datetime.today())
@@ -15,13 +16,22 @@
   )
 )
 
+#set text(
+  font: global-font,
+  lang: "zh",
+  region: "cn",
+  weight: "thin",
+  size: font-size.小四  
+)
+
+
 #master-cover(
   中图分类号: "",
   学校代码: "10533",
   UDC: "",
   学位类别: "硕士",
   论文名称: "学位论文中文题名",
-  title: "English name of the thesis",
+  title: "English Name",
   作者姓名: "XXX", 
   一级学科: "一级学科名称",
   二级学科: "二级学科名称",
@@ -35,16 +45,36 @@
   月: "XX"
 )
 
+#align(center)[
+    #text(
+      font: font.黑体, 
+      size: font-size.三号,
+      weight: "bold",
+      "目   录"
+    )
+]
+
+
 #counter(page).update(1)
 #set page(
-  header: [
-    #set text(font: font.宋体, size: font-size.五号, stroke: 0.1pt)
+  header: context [
+    #set text(font: global-font, size: font-size.五号, stroke: 0.1pt)
     #box(
       width: 100%,
       stroke: (bottom: black),
       inset: (bottom: 6pt, left: 1.5pt, right: 1.5pt),
-      [中南大学博（硕）士学位论文 #h(1fr) 标题]
-    )
+    )[中南大学博（硕）士学位论文 #h(1fr) #{
+        let items = query(heading.where(level: 1))
+        // 顶多就遍历几十页，直接顺序搜索
+        let cur-chapter-num = int(counter(heading.where(level: 1)).display("1")) + 1
+        for item in items {
+          if item.location().page() == here().page() {
+            [第 #cur-chapter-num 章 #" " #item.body]
+            break
+          }
+        }
+      }
+    ]
   ],
   footer: context [
     #set align(center)
@@ -61,51 +91,18 @@
 
 )
 
-#let global-font = font.Times + font.宋体
-#set text(
-  font: global-font,
-  lang: "zh",
-  region: "cn",
-  weight: "thin",
-  size: font-size.小四  // 小四号 = 12pt
-)
-
 #set heading(numbering: "1.1")
-#let heading-setting(it) = {
-    if it.level == 1 {
-      set align(center)
-      set text(
-        size: font-size.三号, 
-        stroke: 0.2pt, 
-        font: global-font
-      )
-      // pagebreak()
-      // v(0pt)
-      "第" + counter(heading).display("1") + "章  "
-      it.body
-      // v(0pt)
-    } else if it.level == 2{
-      set text(
-        size: font-size.四号, 
-        weight: "thin", 
-        font: global-font
-      )
-      it
-    } else {
-      set text(
-        size: font-size.小四, 
-        weight: "thin", 
-        font: global-font
-      )
-      it
-    }
-    par()[#text(size:0.5em)[#h(0.0em)]]
-}
-
 #show heading: it => heading-setting(it)
 
-
 = 章标题
+
+
+#let p(w, f, ..args) = box(
+  width: w, height: 10pt, fill: f, ..args)
+
+
+4比6：#p(100pt, blue, p(40%, red))
+
 
 正文采用中文小四号宋体，英文小四号Times New Roman，标准字间距，章节名及正文的固定值行距为20磅。
 
@@ -130,23 +127,7 @@
 
 #show raw: rect.with(stroke: blue)
 
-#let word-count(it) = {
-  return it.text.len();
-}
 
-#word-count([word])
-
-#let f(a, b, c) = [#a, #b, #c]
-#let b = text.with(fill: blue)
-
-#rect([hello])
-
-#let matrix-fmt(..args) = [
-  #let a = args.pos()
-  #a.len()
-  #table(columns: a.len(), [#a.at(0)])
-]
-#matrix-fmt((1,2,3),(4,5,6),(7,8,9))
 
 #let cat = (a: 2, "b": 3, attr: [123])
 #for (key, val) in cat {
@@ -156,6 +137,7 @@
 #text(fill: color.hsl(0deg, 21.05%, 77.65%, 0%))[你好]
 
 #table(columns: 2, align: center,[111],[2],[3],[4])
+
 
 #text(lorem(100), fill: red)
 
