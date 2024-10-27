@@ -9,26 +9,24 @@
       font: font.Times + font.黑体
     )
     pagebreak(weak: true)
-    // v(0pt)
-    if it.body != [参考文献] {
-      "第" + counter(heading).display("1") + "章  "
-    }
-    it.body
+    it
     // v(0pt)
   } else if it.level == 2{
     set text(
       size: font-size.四号, 
       weight: "thin", 
-      font: global-font
+      font: global-font,
+      stroke: 0.1pt
     )
     it
   } else {
     set text(
       size: font-size.小四, 
       weight: "thin", 
-      font: global-font
+      font: global-font,
+      stroke: 0.1pt
     )
     it
   }
-  par()[#text(size:0.5em)[#h(0.0em)]]
+  par()[#text(size: 0em)[#h(0.0em)]]
 }

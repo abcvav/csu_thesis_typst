@@ -84,15 +84,16 @@
   ]
 )
 
-#set par(
-  justify: true,          // 两端对齐
-  first-line-indent: 2em, // 段前顶格两字符
-  leading: 1em,          // 行距 20 磅
-  spacing: 1em
+#let chinese-numbering(..nums) = {
+  let args_arr = nums.pos()
+  if args_arr.len() == 1 {
+    [第 #args_arr.at(0) 章]
+  } else {
+    [#args_arr.map(str).join(".")]
+  }
+}
 
-)
-
-#set heading(numbering: "1.1")
+#set heading(numbering: chinese-numbering)
 #show heading: it => heading-setting(it)
 
 = 章标题
