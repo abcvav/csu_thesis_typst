@@ -11,6 +11,7 @@
     pagebreak(weak: true)
     v(4pt)
     it
+    v(3.5pt)
   } else if it.level == 2{
     set text(
       size: font-size.四号, 
@@ -18,7 +19,9 @@
       font: global-font,
       stroke: 0.1pt
     )
+    v(2.5pt)
     it
+    v(-0.5pt)
   } else {
     set text(
       size: font-size.小四, 
