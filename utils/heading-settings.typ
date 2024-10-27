@@ -10,7 +10,6 @@
     )
     pagebreak(weak: true)
     it
-    // v(0pt)
   } else if it.level == 2{
     set text(
       size: font-size.四号, 
