@@ -54,7 +54,15 @@
   // 学位论文原创性声明、学位论文版权使用授权书
   statement-page()
 
-
+  // 从摘要到目录页数单独计数
+  counter(page).update(1)
+  set page (
+    footer: context [
+      #set align(center)
+      #set text(font: font.Times, size: font-size.小五)
+      #counter(page).display("1")
+    ]
+  )
   // TODO 从 abstract 到符号说明，采用罗马字母编号
   // 中文摘要
   abstract-zh-page(
