@@ -106,7 +106,7 @@
   #set page(
     margin: (
       top: 75pt,
-      bottom: 75pt,
+      bottom: 40pt,
     )
   )
   #_paper-info("中图分类号", 中图分类号, key-width: 18%)

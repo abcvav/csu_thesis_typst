@@ -1,6 +1,6 @@
 #import "../utils/lib.typ": *
 
-#let csu-master-template(cover-info: none, doc) = {
+#let csu-master-template(cover-info: none, abstract-info: none, doc) = {
   set document(author: cover-info.作者姓名, date: datetime.today())
 
   set page(
@@ -60,27 +60,29 @@
     footer: context [
       #set align(center)
       #set text(font: font.Times, size: font-size.小五)
-      #counter(page).display("1")
+      #v(1pt)
+      #counter(page).display("I")
     ]
   )
   // TODO 从 abstract 到符号说明，采用罗马字母编号
+
   // 中文摘要
+  let (abstract-zh-info, abstract-en-info) = abstract-info
+  // TODO 还需要测试两行的标题间距
   abstract-zh-page(
-    keywords: ("关键词1", "关键词2", "关键词3"),
-    classification: ("分类号1", "分类号2", ),
-  )[摘要正文
-
-  (1) 第一点
-
-  (2) 第二点
-
-  + 第一点
-  + 第一点
-
-  ]
+    title: cover-info.论文名称, 
+    keywords: abstract-zh-info.keywords,
+    classification: abstract-zh-info.classification,
+    abstract-zh-info.content
+  )
 
   // 英文摘要
-  abstract-en-page()
+  abstract-en-page(
+    title: cover-info.论文英文名称, 
+    keywords: abstract-en-info.keywords,
+    classification: abstract-en-info.classification,
+    abstract-en-info.content,
+  )
 
   // 目录页
   csu-outline()

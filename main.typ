@@ -10,7 +10,7 @@
   学位类别: "学术学位",    // 学术学位 | 专业学位
   学位: "硕士",
   论文名称: "学位论文中文题名",
-  论文英文名称: "English name",
+  论文英文名称: "English Name of the Thesis",
   作者姓名: "作者姓名",
   一级学科: "一级学科名称",
   二级学科: "二级学科名称",
@@ -23,9 +23,45 @@
   年: "XXXX",
   月: "XX"
 )
-#show: csu-master-template.with(cover-info: cover-info)
+
+// 中文摘要
+#let abstract-zh-info = (
+  keywords: ("关键词1", "关键词2", "关键词3", "关键词4"),
+  classification: ("分类号1",),
+  content: [
+  在此处撰写摘要正文内容，在此处撰写摘要正文内容。
+  在此处撰写摘要正文内容，在此处撰写摘要正文内容。
+  在此处撰写摘要正文内容，在此处撰写摘要正文内容。
+
+  (1) 第二段内容
+
+  (2) 第三段
+
+  (3) 第四段
+
+  ]
+)
+
+// 英文摘要
+#let abstract-en-info = (
+  keywords: ("keyword1", "keyword2", "keyword3", "keyword4"),
+  classification: ("cls1",),
+  content: [
+    #lorem(100)
+
+    (1) #lorem(50)
+
+    (2) #lorem(50)
+  ]
+)
+
+#show: csu-master-template.with(
+  cover-info: cover-info,
+  abstract-info: (abstract-zh-info, abstract-en-info)
+)
 
 = 章标题
+
 
 正文采用中文小四号宋体，英文小四号Times New Roman，标准字间距，章节名及正文的固定值行距为20磅。
 
