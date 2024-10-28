@@ -1,4 +1,4 @@
-#import "../utils/font-settings.typ": *
+#import "../styles/font-settings.typ": *
 
 #let statement-page() = [
   #set page(
