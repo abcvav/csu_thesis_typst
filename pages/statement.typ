@@ -2,12 +2,9 @@
 
 #let statement-page() = [
   #set page(
-    paper: "a4", 
     margin: (
       top: 75pt,
       bottom: 75pt,
-      left: 90pt,
-      right: 90pt
     )
   )
   #set par(
