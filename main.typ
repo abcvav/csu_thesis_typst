@@ -25,19 +25,19 @@
 )
 
 // 中文摘要
+// TODO 还需要自动计算图的数量
 #let abstract-zh-info = (
   keywords: ("关键词1", "关键词2", "关键词3", "关键词4"),
   classification: ("分类号1",),
   content: [
-  在此处撰写摘要正文内容，在此处撰写摘要正文内容。
-  在此处撰写摘要正文内容，在此处撰写摘要正文内容。
-  在此处撰写摘要正文内容，在此处撰写摘要正文内容。
+  #([在此处撰写摘要正文内容，在此处撰写摘要正文内容。] * 3)
+  
 
-  (1) 第二段内容
+  (1) #([第二段内容，第二段内容。] * 10)
 
-  (2) 第三段
+  (2) #([第三段内容，第三段内容。] * 10)
 
-  (3) 第四段
+  (3) #([第四段内容，第四段内容。] * 10)
 
   ]
 )
@@ -55,12 +55,12 @@
   ]
 )
 
+// TODO 添加字体文件，解决 warning 问题
 #show: csu-master-template.with(
   cover-info: cover-info,
   abstract-info: (abstract-zh-info, abstract-en-info)
 )
-
-= 章标题
+= 章标题 
 
 
 正文采用中文小四号宋体，英文小四号Times New Roman，标准字间距，章节名及正文的固定值行距为20磅。
@@ -80,11 +80,31 @@
 
 == 本章小结
 
+#figure(
+  image("example.png", width: 50%), // 50% / 1cm
+  caption: [列车发车时刻],
+)
+#figure(
+  image("example.png", width: 50%), // 50% / 1cm
+  caption: [列车发车时刻],
+)
+#figure(
+  image("example.png", width: 50%), // 50% / 1cm
+  caption: [列车发车时刻],
+)
 
 
 = 章标题
 == 节标题
 
+#figure(
+  image("example.png", width: 50%), // 50% / 1cm
+  caption: [列车发车时刻],
+)
+#figure(
+  image("example.png", width: 50%), // 50% / 1cm
+  caption: [列车发车时刻],
+)
 == ...
 
 = 例子
@@ -100,22 +120,34 @@
 
 #text(fill: color.hsl(0deg, 21.05%, 77.65%, 0%))[]
 
-#table(columns: 2, align: center,[111],[2],[3],[4])
+#figure(
+  table(columns: 2, align: center,
+  [111],[2],
+  [3],[4]),
+  caption: [I'm here]
+)
 
 
-#text(lorem(100), fill: red)
-
+#lorem(400)
 
 #figure(
   image("example.png", width: 50%), // 50% / 1cm
-  caption: [
-    _Glaciers_ form an important part
-    of the earth's climate system.
-  ],
+  caption: [列车发车时刻],
+)
+#figure(
+  image("example.png", width: 50%), // 50% / 1cm
+  caption: [列车发车时刻],
+)
+
+#figure(
+  image("example.png", width: 50%), // 50% / 1cm
+  caption: [列车发车时刻],
 ) <label>
 
-@label 表明...
+@label 表明... @he2016deep
 
 文献 @impagliazzo2001problems
 
 #bibliography("ref.bib", style: "gb-t-7714-2015-numeric.csl")
+
+= 附录A 附录标题

@@ -7,7 +7,7 @@
     paper: "a4", 
     margin: (
       top: 89pt,
-      bottom: 88pt,
+      bottom: 85pt,
       left: 90pt,
       right: 90pt
     )
@@ -64,7 +64,6 @@
       #counter(page).display("I")
     ]
   )
-  // TODO 从 abstract 到符号说明，采用罗马字母编号
 
   // 中文摘要
   let (abstract-zh-info, abstract-en-info) = abstract-info
@@ -119,7 +118,10 @@
     ]
   )
 
-  let chinese-numbering(..nums) = {
+  // set figure(numbering: fig-numbering)
+  show figure: it => figure-settings(it)
+
+  let _chinese-numbering(..nums) = {
     let args_arr = nums.pos()
     if args_arr.len() == 1 {
       [第 #args_arr.at(0) 章]
@@ -127,7 +129,8 @@
       [#args_arr.map(str).join(".")]
     }
   }
-  set heading(numbering: chinese-numbering)
+  set heading(numbering: _chinese-numbering)
+
   show heading: it => heading-setting(it)
   doc
 }
