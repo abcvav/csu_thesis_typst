@@ -25,23 +25,22 @@
     }
 
     let img-num = (cur-img - prev-img)
-    [#it.body #it.supplement #(cur-chap)-#(img-num) #" " #it.caption.body]
+    [#it.body #it.supplement #(cur-chap)-#(img-num)#"  "#it.caption.body]
   } else if it.kind == table {
     set text(font: font.Times + font.楷体, size: font-size.五号)
 
-    let prev-chap = int(prev-chapter-counter-tbl.display())
+    let prev-chap= int(prev-chapter-counter-tbl.display())
     let cur-tbl = int(counter(figure.where(kind: table)).get().at(0))
     let prev-tbl = int(prev-tbl-counter.display())
 
     if cur-chap != prev-chap {
-      prev-chapter-counter-tbl.update(cur-tbl)
+      prev-chapter-counter-tbl.update(cur-chap)
       prev-tbl-counter.update(cur-tbl - 1)
       prev-tbl = cur-tbl - 1
     }
 
     let tbl-num = (cur-tbl - prev-tbl)
-
-    [#it.supplement #(cur-chap)-#(tbl-num) #" " #it.caption.body #it.body]
+    [#it.supplement #(cur-chap)-#(tbl-num)#"  "#it.caption.body #it.body]
   } else {
     it
   }
