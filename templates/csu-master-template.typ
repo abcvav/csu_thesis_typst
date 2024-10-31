@@ -88,28 +88,13 @@
 
   counter(page).update(1)
   set page(
-    header: context [
+    header: [
       #set text(size: font-size.五号)
       #box(
         width: 100%,
         stroke: (bottom: black),
         inset: (bottom: 6pt, left: 1.5pt, right: 1.5pt),
-      )[中南大学博（硕）士学位论文 #h(1fr) #{
-          let items = query(heading.where(level: 1))
-          let cur-chapter-num = counter(heading).get().at(0) + 1
-          // 顶多就遍历几十页，直接顺序搜索
-          for item in items {
-            if item.location().page() == here().page() {
-              // FIXME 这里有问题，应该不止参考文献，而是除了章标题以外的所有内容
-              if item.body not in ([参考文献], [致谢], [攻读学位期间主要的研究成果]) {
-                [第 #cur-chapter-num 章]
-              }
-              [#" " #item.body]
-              break
-            }
-          }
-        }
-      ]
+      )[中南大学博（硕）士学位论文 #h(1fr) #display-header()]
     ],
     footer: context [
       #set align(center)
@@ -121,15 +106,7 @@
   // set figure(numbering: fig-numbering)
   show figure: it => figure-settings(it)
 
-  let _chinese-numbering(..nums) = {
-    let args_arr = nums.pos()
-    if args_arr.len() == 1 {
-      [第 #args_arr.at(0) 章]
-    } else {
-      [#args_arr.map(str).join(".")]
-    }
-  }
-  set heading(numbering: _chinese-numbering)
+  set heading(numbering: chinese-numbering)
 
   show heading: it => heading-setting(it)
   doc

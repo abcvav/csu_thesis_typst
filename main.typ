@@ -1,4 +1,6 @@
 #import "templates/csu-master-template.typ": csu-master-template
+// FIXME 这里太别扭了，appendix居然不属于这个模板
+#import "pages/appendix.typ": appendix-page
 
 // 该信息会嵌入到pdf元信息中，但不会显示在pdf页面中
 
@@ -56,10 +58,15 @@
 )
 
 // TODO 添加字体文件，解决 warning 问题
+// TODO 调整附录和参考文献的段间距
+// FIXME 页眉显示有bug
 #show: csu-master-template.with(
   cover-info: cover-info,
   abstract-info: (abstract-zh-info, abstract-en-info)
 )
+#import "utils/chapter-info.typ": display-header
+
+// #display-header()
 = 章标题 
 
 
@@ -127,6 +134,18 @@
   caption: [I'm here]
 )
 
+#figure(
+  table(columns: 2, align: center,
+  [111],[2],
+  [3],[4]),
+  caption: [I'm here]
+)
+#figure(
+  table(columns: 2, align: center,
+  [111],[2],
+  [3],[4]),
+  caption: [I'm here]
+)
 
 #lorem(400)
 
@@ -140,6 +159,13 @@
 )
 
 #figure(
+  table(columns: 2, align: center,
+  [111],[2],
+  [3],[4]),
+  caption: [I'm here]
+)
+
+#figure(
   image("example.png", width: 50%), // 50% / 1cm
   caption: [列车发车时刻],
 ) <label>
@@ -148,6 +174,66 @@
 
 文献 @impagliazzo2001problems
 
+
+#display-header()
+
+
 #bibliography("ref.bib", style: "gb-t-7714-2015-numeric.csl")
 
-= 附录A 附录标题
+
+
+// 附录写入一个文件中
+#show: it => appendix-page(it)
+
+= 附录标题
+
+== 小节标题
+
+
+= 附录标题
+
+#import "styles/font-settings.typ": *
+#let research-results(it) = {
+  counter(heading).update(0)
+  let other-numbering(..nums) = {
+    let num-to-chinese = (
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九"
+    )
+    let nums-arr = nums.pos()
+    if nums-arr.len() == 2 {
+      [#num-to-chinese.at(str(nums-arr.at(1)))、]
+    }
+  }
+
+  set heading(numbering: other-numbering)
+  
+  let heading-setting(it) = {
+    if it.level == 2 {
+      set text(font: font.黑体, weight: "bold")
+      // it.fields()
+      it
+    } else {
+      it
+    }
+  }
+  show heading: it => heading-setting(it)
+
+  it
+}
+#show: it => research-results(it)
+
+= 攻读学位期间主要的研究成果
+
+== 发表的学术论文
+
+== 主持和参与的科研项目
+
+= 致谢
