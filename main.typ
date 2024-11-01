@@ -5,8 +5,6 @@
 #import "content/abstract-en.typ": *
 
 
-// 该信息会嵌入到pdf元信息中，但不会显示在pdf页面中
-
 // 封面页信息
 #let cover-info = (
   中图分类号: "",
