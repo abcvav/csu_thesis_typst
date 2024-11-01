@@ -6,7 +6,7 @@
 #import "../pages/master-cover.typ": master-cover
 #import "../pages/statement.typ": statement-page
 #import "../pages/abstract.typ": *
-#import "../pages/table-of-contents.typ": csu-outline
+#import "../pages/outline.typ": csu-outline
 
 
 // 设置正文前面的部分
