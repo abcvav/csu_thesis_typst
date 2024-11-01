@@ -6,7 +6,7 @@
   #show outline.entry.where(level: 1): it => {
     set text(font: font.黑体)
     v(4.5pt)
-    strong(it)
+    it
     v(-3pt, weak: true)
   }
   #show outline.entry.where(level: 2): it => {

@@ -32,6 +32,8 @@
     stroke: 0.1pt
   )
 
+  show strong: set text(weight: "bold")
+
   // 封面信息填写
   master-cover(
     中图分类号: cover-info.中图分类号,
@@ -71,7 +73,7 @@
       #set align(center)
       #set text(font: font.Times, size: font-size.小五)
       #v(1pt)
-      #counter(page).display("I")
+      #context counter(page).display("I")
     ]
   )
 

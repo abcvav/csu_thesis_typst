@@ -3,9 +3,11 @@
 #set heading(numbering: main-text-numbering)
 #show heading: main-text-heading
 
-
 = 章标题 
 
+*你好*
+
+*Hello world*
 
 
 正文采用中文小四号宋体，英文小四号Times New Roman，标准字间距，章节名及正文的固定值行距为20磅。

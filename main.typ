@@ -4,7 +4,6 @@
 #import "content/abstract-zh.typ": *
 #import "content/abstract-en.typ": *
 
-
 // 封面页信息
 #let cover-info = (
   中图分类号: "",
