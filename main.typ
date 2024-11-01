@@ -1,4 +1,5 @@
 #import "styles/front-settings.typ": front-matter
+#import "styles/heading-settings.typ": back-page-heading
 
 #import "content/abstract-zh.typ": *
 #import "content/abstract-en.typ": *
@@ -43,6 +44,7 @@
 )
 
 // TODO 添加字体文件，解决 warning 问题
+// FIXME 这个耦合关系有点怪
 #show: front-matter.with(
   cover-info: cover-info,
   abstract-info: (abstract-zh-info, abstract-en-info)
@@ -51,14 +53,11 @@
 // 章节正文
 #include "content/chapters.typ"
 
-#import "styles/numbering.typ": main-text-numbering
-#import "styles/heading-settings.typ": back-page-heading
 
 #show heading: back-page-heading
 
 // 参考文献
 #bibliography("ref.bib", style: "gb-t-7714-2015-numeric.csl")
-
 
 #set heading(numbering: it => {})
 
@@ -67,6 +66,5 @@
 
 // 攻读学位期间主要的研究成果
 #include "content/research-results.typ"
-
 // 致谢
 #include "content/thanks.typ"
