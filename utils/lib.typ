@@ -1,8 +1,8 @@
-#import "numbering.typ": chinese-numbering, appendix-numbering
-#import "chapter-info.typ": display-header
+#import "../styles/numbering.typ": main-text-numbering, appendix-numbering
+#import "../styles/header-settings.typ": display-header, append-state
 
 #import "../styles/font-settings.typ": font, font-size, global-font
-#import "../styles/heading-settings.typ": heading-setting
+#import "../styles/heading-settings.typ": main-text-heading
 #import "../styles/figure-settings.typ": figure-settings
 
 #import "../pages/master-cover.typ": master-cover

@@ -1,12 +1,13 @@
 #import "../utils/lib.typ": *
 
-#let csu-master-template(cover-info: none, abstract-info: none, doc) = {
+// 设置正文前面的部分
+#let front-matter(cover-info: none, abstract-info: none, doc) = {
   set document(author: cover-info.作者姓名, date: datetime.today())
 
   set page(
     paper: "a4", 
     margin: (
-      top: 89pt,
+      top: 91pt,
       bottom: 85pt,
       left: 90pt,
       right: 90pt
@@ -57,7 +58,7 @@
   // 从摘要到目录页数单独计数
   counter(page).update(1)
   set page (
-    footer: context [
+    footer: [
       #set align(center)
       #set text(font: font.Times, size: font-size.小五)
       #v(1pt)
@@ -94,20 +95,17 @@
         width: 100%,
         stroke: (bottom: black),
         inset: (bottom: 6pt, left: 1.5pt, right: 1.5pt),
-      )[中南大学博（硕）士学位论文 #h(1fr) #display-header()]
+      )[中南大学博（硕）士学位论文 #h(1fr) #context display-header()]
     ],
-    footer: context [
+    footer: [
       #set align(center)
       #set text(font: font.Times, size: font-size.小五)
-      #counter(page).display("1")
+      #context counter(page).display("1")
     ]
   )
 
   // set figure(numbering: fig-numbering)
-  show figure: it => figure-settings(it)
-
-  set heading(numbering: chinese-numbering)
-
-  show heading: it => heading-setting(it)
+  show figure: figure-settings
+  show heading.where(level: 1): append-state
   doc
 }

@@ -7,7 +7,8 @@
 #let prev-tbl-counter = counter("tbl-counter")
 
 
-#let figure-settings(it) = context {
+// FIXME 引用时候的编号有问题
+#let figure-settings(it) = {
   let cur-chap = int(counter(heading).get().at(0))
   if it.kind == image {
     set text(font: font.Times + font.楷体, size: font-size.五号)
@@ -25,7 +26,9 @@
     }
 
     let img-num = (cur-img - prev-img)
-    [#it.body #it.supplement #(cur-chap)-#(img-num)#"  "#it.caption.body]
+    // [#it.body #it.supplement #(cur-chap)-#(img-num)#"  "#it.caption.body]
+    // [#it.supplement #(cur-chap)-#(img-num)#"  "#it.caption.body]
+    it
   } else if it.kind == table {
     set text(font: font.Times + font.楷体, size: font-size.五号)
 

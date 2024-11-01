@@ -1,4 +1,4 @@
-#import "../utils/numbering.typ": appendix-numbering
+#import "../styles/numbering.typ": appendix-numbering
 
 #let appendix-page(it) = {
   counter(heading).update(0)

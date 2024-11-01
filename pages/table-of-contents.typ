@@ -9,6 +9,10 @@
     strong(it)
     v(-3pt, weak: true)
   }
+  #show outline.entry.where(level: 2): it => {
+    it
+    v(-7.5pt, weak: true)
+  }
 
   #outline(
     title: [

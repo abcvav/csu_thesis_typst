@@ -1,4 +1,4 @@
-#let chinese-numbering(..nums) = {
+#let main-text-numbering(..nums) = {
   let args_arr = nums.pos()
   if args_arr.len() == 1 {
     numbering("第1章 ", ..nums)
