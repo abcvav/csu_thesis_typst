@@ -43,7 +43,6 @@
 )
 
 // TODO 添加字体文件，解决 warning 问题
-// TODO 调整附录和参考文献的段间距
 #show: front-matter.with(
   cover-info: cover-info,
   abstract-info: (abstract-zh-info, abstract-en-info)

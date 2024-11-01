@@ -1,4 +1,13 @@
-#import "../utils/lib.typ": *
+#import "numbering.typ": image-numbering, table-numbering
+#import "figure-settings.typ": figure-settings
+#import "header-settings.typ": append-state, display-header
+#import "font-settings.typ": *
+
+#import "../pages/master-cover.typ": master-cover
+#import "../pages/statement.typ": statement-page
+#import "../pages/abstract.typ": *
+#import "../pages/table-of-contents.typ": csu-outline
+
 
 // 设置正文前面的部分
 #let front-matter(cover-info: none, abstract-info: none, doc) = {
@@ -104,7 +113,8 @@
     ]
   )
 
-  // set figure(numbering: fig-numbering)
+  show figure.where(kind: image): set figure(numbering: image-numbering)
+  show figure.where(kind: table): set figure(numbering: table-numbering)
   show figure: figure-settings
   show heading.where(level: 1): append-state
   doc

@@ -108,7 +108,6 @@
   caption: [列车发车时刻],
 ) <label>
 
-// FIXME 图片引用的编号有问题
 @label 表明... @he2016deep
 
 文献 @impagliazzo2001problems
