@@ -1,4 +1,4 @@
-#import "styles/front-settings.typ": before-main-text
+#import "styles/before-main-text-settings.typ": before-main-text
 #import "styles/heading-settings.typ": back-page-heading
 
 #import "content/abstract-zh.typ": *
