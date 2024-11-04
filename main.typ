@@ -1,4 +1,4 @@
-#import "styles/front-settings.typ": front-matter
+#import "styles/front-settings.typ": before-main-text
 #import "styles/heading-settings.typ": back-page-heading
 
 #import "content/abstract-zh.typ": *
@@ -40,9 +40,7 @@
   content: content-en
 )
 
-// TODO 添加字体文件，解决 warning 问题
-// FIXME 这个耦合关系有点怪
-#show: front-matter.with(
+#show: before-main-text.with(
   cover-info: cover-info,
   abstract-info: (abstract-zh-info, abstract-en-info)
 )

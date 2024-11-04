@@ -1,4 +1,4 @@
-#import "numbering.typ": image-numbering, table-numbering
+#import "numbering.typ": image-numbering, table-numbering, equation-numbering
 #import "figure-settings.typ": figure-settings
 #import "header-settings.typ": append-state, display-header
 #import "font-settings.typ": *
@@ -10,7 +10,7 @@
 
 
 // 设置正文前面的部分
-#let front-matter(cover-info: none, abstract-info: none, doc) = {
+#let before-main-text(cover-info: none, abstract-info: none, doc) = {
   set document(author: cover-info.作者姓名, date: datetime.today())
 
   set page(
@@ -115,6 +115,7 @@
     ]
   )
 
+  set math.equation(numbering: equation-numbering)
   show figure.where(kind: image): set figure(numbering: image-numbering)
   show figure.where(kind: table): set figure(numbering: table-numbering)
   show figure: figure-settings
