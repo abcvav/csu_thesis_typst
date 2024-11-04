@@ -65,5 +65,28 @@
   } else {
     [#(cur-chap)-#tbl-num]
   }
+}
 
+
+#let prev-chapter-counter-eq = counter("chap-counter-eq")
+#let prev-eq-counter = counter("eq-counter")
+#let equation-numbering(..nums) = {
+  let heading-counter = counter(heading)
+  let cur-chap = int(heading-counter.get().at(0))
+  let prev-chap= int(prev-chapter-counter-eq.display())
+  let cur-eq = int(counter(math.equation).get().at(0))
+  let prev-eq = int(prev-eq-counter.display())
+
+  if cur-chap != prev-chap {
+    prev-chapter-counter-eq.update(cur-chap)
+    prev-eq-counter.update(cur-eq - 1)
+    prev-eq = cur-eq - 1
+  }
+
+  let eq-num = (cur-eq - prev-eq)
+  if counter(heading.where(level: 1)).display().starts-with("附录") {
+    [(#heading-counter.display("A").at(0)-#eq-num)]
+  } else {
+    [(#(cur-chap)-#eq-num)]
+  }
 }
