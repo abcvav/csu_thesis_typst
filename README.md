@@ -48,8 +48,8 @@ csu_thesis_typst
 │   ├── research-results.typ      // 攻读学位期间主要的研究成果
 │   └── thanks.typ                // 致谢
 ├── fonts                         // 字体文件
-├── pages                          // 特定页面的样式
-└── styles                         // 全局样式设置
+├── pages                         // 特定页面的样式
+└── styles                        // 全局样式设置
 ```
 
 ### Typst 资料
