@@ -106,7 +106,7 @@
         width: 100%,
         stroke: (bottom: black),
         inset: (bottom: 6pt, left: 1.5pt, right: 1.5pt),
-      )[中南大学博（硕）士学位论文 #h(1fr) #context display-header()]
+      )[中南大学#(cover-info.学位)学位论文 #h(1fr) #context display-header()]
     ],
     footer: [
       #set align(center)
