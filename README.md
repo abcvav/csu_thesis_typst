@@ -4,9 +4,19 @@
 
 ![](assets/result.png)
 
-## 使用教程
+> 目前暂未测试 Windows 下的结果
 
-### 使用
+## 教程
+
+### 安装 Typst
+
+- 命令行安装
+    - MacOS: `brew install typst`
+    - Windows: `winget install --id Typst.Typst`
+- 手动安装
+  - 来到 [typst releases](https://github.com/typst/typst/releases) 下，找到相应的版本并安装
+
+### 使用模板
 
 模板效果：见 `main.pdf`
 
@@ -48,3 +58,4 @@ csu_thesis_typst
 - [面向 Latex 用户指南](https://typst-doc-cn.github.io/docs/guides/guide-for-latex-users/) | [Guide for LaTeX users](https://typst.app/docs/guides/guide-for-latex-users/)
 - [Typst 中文社区导航](https://typst-doc-cn.github.io/guide/)
 - [Typst Documentation](https://typst.app/docs/)
+- [typst - github](https://github.com/typst/typst)
