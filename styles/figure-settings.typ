@@ -5,6 +5,7 @@
   set figure.caption(separator: [#"  "])
   par()[#text(size: 0em)[#h(0.0em)]]
   if it.kind == table {
+    set table(inset: 0.7em)
     set figure.caption(position: top)
     it
   } else {

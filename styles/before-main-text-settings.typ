@@ -1,6 +1,7 @@
-#import "numbering.typ": equation-numbering
+#import "numbering.typ": *
 #import "header-settings.typ": append-state, display-header
-#import "figure-settings.typ": *
+#import "equation-settings.typ": equation-setting
+#import "figure-settings.typ": figure-setting, caption-setting
 #import "font-settings.typ": *
 
 #import "../pages/master-cover.typ": master-cover
@@ -115,12 +116,15 @@
     ]
   )
 
-  set table(inset: 0.7em)
   set math.equation(numbering: equation-numbering)
+  show math.equation: equation-setting
+
   show figure.where(kind: image): set figure(numbering: image-numbering)
   show figure.where(kind: table): set figure(numbering: table-numbering)
+
   show figure: figure-setting
   show figure.caption: caption-setting
+
   show heading.where(level: 1): append-state
   doc
 }
