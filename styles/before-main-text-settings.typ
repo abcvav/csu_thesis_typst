@@ -115,6 +115,7 @@
     ]
   )
 
+  set table(inset: 0.7em)
   set math.equation(numbering: equation-numbering)
   show figure.where(kind: image): set figure(numbering: image-numbering)
   show figure.where(kind: table): set figure(numbering: table-numbering)

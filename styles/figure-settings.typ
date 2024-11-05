@@ -3,6 +3,7 @@
 
 #let figure-setting(it) = {
   set figure.caption(separator: [#"  "])
+  par()[#text(size: 0em)[#h(0.0em)]]
   if it.kind == table {
     set figure.caption(position: top)
     it

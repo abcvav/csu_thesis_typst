@@ -5,10 +5,66 @@
 
 = 章标题 
 
-正文采用中文小四号宋体，英文小四号Times New Roman，标准字间距，章节名及正文的固定值行距为20磅。
+== 表格
 
-第一章一般为绪论，应包括研究的目的和意义，问题的提出，选题的背景， 文献综述，研究方法，论文结构安排等。
+表格语法：#link("https://typst.app/docs/guides/table-guide/", text(fill: blue, "Table-Guide"))
 
+
+#figure(
+  table(
+    columns: 3, 
+    align: center,
+    table.hline(),
+    table.header([表头1], [表头2], [表头3]),
+    table.hline(),
+    [表项1],[表项2], [表项3],
+    [表项4],[表项5], [表项6],
+    table.hline(),
+  ),
+  caption: [普通表]
+) <mytable>
+
+引用表格：`@mytable`。引用结果：@mytable
+
+#figure(
+  table(
+    columns: (4cm, auto, auto),
+    align: center + horizon,
+    [你好], [你好], [你好],
+    table.cell(rowspan: 2)[跨行表项, 指定 `align: horizon` 垂直居中], [表头], [表项], 
+    [表项], [表项]
+  ),
+  caption: [跨行表]
+)
+
+#figure(
+  table(
+    columns: (3cm, 3cm, 5cm), 
+    align: center,
+    table.hline(),
+    table.header([设定columns的长度后], [表头标题超过该长度], [就会自动换行]),
+    table.hline(),
+    [表项1],[表项2], [表项3],
+    [表项4], table.cell(colspan: 2)[使用 `table.cell(colspan: 2)` 跨2列],
+    table.hline(),
+  ),
+  caption: [跨列表]
+)
+
+#figure(
+  table(
+    columns: 3, 
+    align: center,
+    stroke: none,
+    table.hline(),
+    table.header([*加粗表头1*], [*加粗表头2*], [*加粗表头3*]),
+    table.hline(),
+    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
+    [表项5], [表项6],
+    table.hline(),
+  ),
+  caption: [三线表]
+)
 
 行间公式： $ sum_(k=1)^n k = (n(n+1)) / 2 $
 
@@ -30,19 +86,15 @@
 
 #figure(
   image("assets/example.png", width: 50%), // 50% / 1cm
-  caption: [列车发车时刻],
-)
-#figure(
-  image("assets/example.png", width: 50%), // 50% / 1cm
-  caption: [列车发车时刻],
-)
-#figure(
-  image("assets/example.png", width: 50%), // 50% / 1cm
-  caption: [列车发车时刻],
+  caption: [图标题],
 )
 
 
 = 章标题
+行间公式： $ sum_(k=1)^n k = (n(n+1)) / 2 $
+
+$ sum_(k=1)^n k = (n(n+1)) / 2 $
+
 == 节标题
 
 #figure(
@@ -65,8 +117,6 @@
 #for (key, val) in cat {
   [#key #val]
 }
-
-#text(fill: color.hsl(0deg, 21.05%, 77.65%, 0%))[]
 
 #figure(
   table(columns: 2, align: center,
