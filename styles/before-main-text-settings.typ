@@ -1,8 +1,9 @@
 #import "numbering.typ": *
+#import "font-settings.typ": *
 #import "header-settings.typ": append-state, display-header
 #import "equation-settings.typ": equation-setting
 #import "figure-settings.typ": figure-setting, caption-setting
-#import "font-settings.typ": *
+#import "list-settings.typ": list-setting, enum-setting
 
 #import "../pages/master-cover.typ": master-cover
 #import "../pages/statement.typ": statement-page
@@ -118,6 +119,9 @@
 
   set math.equation(numbering: equation-numbering)
   show math.equation: equation-setting
+
+  show enum: enum-setting
+  show list: list-setting
 
   show figure.where(kind: image): set figure(numbering: image-numbering)
   show figure.where(kind: table): set figure(numbering: table-numbering)
