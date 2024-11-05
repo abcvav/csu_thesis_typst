@@ -120,7 +120,7 @@
   #v(font-size.二号, weak: true)
   #_bold-title(weight: "bold")[#(学位)学位论文]
   #v(2em)
-  #_bold-title(size: font-size.二号, weight: "bold")[#论文名称]
+  #_bold-title(font_: font.Times + font.黑体, size: font-size.二号, weight: "bold")[#论文名称]
   #v(1em, weak: true)
   #_bold-title(font_: font.Times, weight: "bold")[#论文英文名称]
   #v(38pt, weak: true)
