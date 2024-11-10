@@ -3,12 +3,26 @@
 #set heading(numbering: main-text-numbering)
 #show heading: main-text-heading
 
-= 章标题 
+= 一级标题
 
-== 表格
+== 二级标题
 
-表格语法：#link("https://typst.app/docs/guides/table-guide/", text(fill: blue, "Table-Guide"))
+=== 三级标题
 
+`=` 是一级标题
+
+`==` 是二级标题
+
+`===` 是三级标题
+
+*加粗语法*：`*文字包裹于星号中*`
+
+
+= 图表语法
+
+参考链接：#link("https://typst.app/docs/guides/table-guide/", text(fill: blue, "Table-Guide"))
+
+图表已经设置好按章节自动编号。
 
 #figure(
   table(
@@ -22,9 +36,9 @@
     table.hline(),
   ),
   caption: [普通表]
-) <mytable>
+) <mytable> // 先在表格后打上标签 <mytable>
 
-引用表格：`@mytable`。引用结果：@mytable
+引用图表的语法：`@mytable`。引用结果：@mytable
 
 #figure(
   table(
@@ -66,102 +80,52 @@
   caption: [三线表]
 )
 
+#figure(
+  image("assets/example.png", width: 50%), // 50% / 1cm
+  caption: [图像],
+) <label1>
+
+#figure(
+  image("assets/example.png", width: 50%), // 50% / 1cm
+  caption: [图像],
+) <label2>
+
+通过 `@label-name` 的方式引用图表： @label1 表明...，而 @label2 表明...
+
+= 公式
 行间公式： $ sum_(k=1)^n k = (n(n+1)) / 2 $
 
-行内公式：$sum_(k=1)^n k = (n(n+1)) / 2$
-
-
-== 节标题
-示例...
-== 节标题
-示例...
-
-=== 小节标题
-示例...
-
-== 节标题
-本文的研究思路如图
-
-== 本章小结
-
-#figure(
-  image("assets/example.png", width: 50%), // 50% / 1cm
-  caption: [图标题],
-)
-
-
-= 章标题
-行间公式： $ sum_(k=1)^n k = (n(n+1)) / 2 $
-
-$ sum_(k=1)^n k = (n(n+1)) / 2 $
-
-== 节标题
-
-#figure(
-  image("assets/example.png", width: 50%), // 50% / 1cm
-  caption: [列车发车时刻],
-)
-#figure(
-  image("assets/example.png", width: 50%), // 50% / 1cm
-  caption: [列车发车时刻],
-)
-== ...
-
-= 例子
-
-#show raw: rect.with(stroke: blue)
+行内公式：$sum_(k=1)^n k = (n(n+1)) / 2$ 去掉 `$$` 和公式之间的空格自动变为行内公式。
+公式符号表可参考链接：#link("https://typst.app/docs/reference/symbols/sym/", text(fill: blue, "Symbols General"))
 
 
 
-#let cat = (a: 2, "b": 3, attr: [123])
-#for (key, val) in cat {
-  [#key #val]
+= 文献引用
+
+文献引用步骤如下：
+
+在根目录下的 `ref.bib` 文件中加入 bib 格式的
+
+
+在谷歌学术中点击 `引用`$->$`BibTex` 然后复制到 `ref.bib` 文件中。
+长这样：
+```bibtex
+@inproceedings{resnet,
+  title     = {Deep residual learning for image recognition},
+  author    = {He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  booktitle = {Proceedings of the IEEE conference on computer vision and pattern recognition},
+  pages     = {770--778},
+  year      = {2016}
 }
+```
 
 #figure(
-  table(columns: 2, align: center,
-  [111],[2],
-  [3],[4]),
-  caption: [I'm here]
+  image("assets/bib-ref.png", width: 100%),
+  caption: [引用方法],
 )
 
-#figure(
-  table(columns: 2, align: center,
-  [111],[2],
-  [3],[4]),
-  caption: [I'm here]
-)
-#figure(
-  table(columns: 2, align: center,
-  [111],[2],
-  [3],[4]),
-  caption: [I'm here]
-)
 
-#lorem(400)
-
-#figure(
-  image("assets/example.png", width: 50%), // 50% / 1cm
-  caption: [列车发车时刻],
-)
-#figure(
-  image("assets/example.png", width: 50%), // 50% / 1cm
-  caption: [列车发车时刻],
-)
-
-#figure(
-  table(columns: 2, align: center,
-  [111],[2],
-  [3],[4]),
-  caption: [I'm here]
-)
-
-#figure(
-  image("assets/example.png", width: 50%), // 50% / 1cm
-  caption: [列车发车时刻],
-) <label>
-
-@label 表明... @he2016deep
+在需要引用的地方使用 `@` 命令：`@resnet`，引用结果：@resnet，参考文献会自动出现在*参考文献*的章节。
 
 文献 @impagliazzo2001problems
 
