@@ -34,7 +34,7 @@
     stroke: 0.1pt
   )
 
-  show strong: set text(weight: "bold")
+  show strong: set text(stroke: 0.6pt)
 
   // 封面信息填写
   master-cover(
