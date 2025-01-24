@@ -27,7 +27,11 @@
 
 模板效果：见 `main.pdf`
 
-- 用 `vs code` 打开项目，搜索扩展 `Tinymist Typst` 并安装
+- 用 `vscode` 打开项目，搜索插件 `Tinymist Typst` 并安装
+- 打开文件 `main.typ`
+- `ctrl+shift+p` 打开 `vscode` 命令行，执行命令 `Typst: Pin the Main file to the Opening Document`
+<img src='assets/image.png' width='80%'>
+
 - 快捷键 `ctrl + ~` 打开 `vs code` 的命令行
 - 执行 `typst watch main.typ --font-path=fonts`
 - `vs code` 内分屏打开 `main.pdf` 实时查看输出结果
@@ -40,6 +44,7 @@
   - `chapters.typ` 中撰写论文正文
 
 更多使用方法见模板内部的示例。
+
 
 ### 项目结构
 
