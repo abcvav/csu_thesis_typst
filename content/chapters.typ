@@ -127,15 +127,11 @@
 
 在需要引用的地方使用 `@` 命令：`@resnet`，引用结果：@resnet，参考文献会自动出现在*参考文献*的章节。
 
+== 单文献引用
 // 引用后会有一个空格
-文献 @resnet 指出
-// 引用后不会有空格
+- 引用后有空格：文献 @resnet 指出，
+- 引用后无空格：文献 #[@impagliazzo2001problems]指出，文献 #cite(<impagliazzo2001problems>)指出
 
-文献 #cite(<impagliazzo2001problems>)指出
-
-文献 #[@impagliazzo2001problems]指出
-
-// 多文献引用
-文献 @resnet@impagliazzo2001problems 指出
-
-文献 #[@resnet@impagliazzo2001problems]指出
+== 多文献引用
+- 引用后有空格：文献 @resnet @impagliazzo2001problems 指出
+- 引用后无空格：文献 #[@resnet @impagliazzo2001problems]指出
