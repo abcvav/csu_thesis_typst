@@ -5,20 +5,21 @@
 
   #show outline.entry.where(level: 1): it => {
     set text(font: font.黑体)
-    v(4.5pt)
+    v(2pt)
     it
-    v(-3pt, weak: true)
+    v(2.5pt)
   }
   #show outline.entry.where(level: 2): it => {
+    v(2pt)
     it
-    v(-7.5pt, weak: true)
+    v(1pt)
   }
 
   #outline(
     title: [
       #set text(font: font.黑体, size: font-size.三号)
       #h(1fr)目#"    "录#h(1fr)
-      #v(37.5pt)
+      #v(35pt)
     ],
     indent: 1em
   )

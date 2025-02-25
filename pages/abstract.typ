@@ -24,6 +24,8 @@
 
   #set text(font: global-font, size: font-size.四号, stroke: 0.1pt)
 
+  #set par(leading: 0.7em)
+
   #_header("摘要：")#body
 
   #""
