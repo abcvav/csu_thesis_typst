@@ -70,7 +70,7 @@
 
   // 从摘要到目录页数单独计数
   counter(page).update(1)
-  set page (
+  set page(
     footer: [
       #set align(center)
       #set text(font: font.Times, size: font-size.小五)
