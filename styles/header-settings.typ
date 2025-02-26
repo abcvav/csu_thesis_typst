@@ -2,8 +2,15 @@
 
 #let first-heading = state("first-heading", (:))
 #let last-heading = state("last-heading", (:))
+#let figure-img-counter = counter("figure-img")
+#let figure-tbl-counter = counter("figure-tbl")
+#let eq-counter = counter("equation")
 
 #let append-state(cur-heading) = {
+  figure-img-counter.update(1)
+  figure-tbl-counter.update(1)
+  eq-counter.update(1)
+
   let page-num = here().page()
 
   let heading-numbering = counter(heading).display()

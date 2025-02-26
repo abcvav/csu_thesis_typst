@@ -1,6 +1,6 @@
 #import "numbering.typ": *
 #import "font-settings.typ": *
-#import "header-settings.typ": append-state, display-header
+#import "header-settings.typ": append-state, display-header, figure-img-counter, figure-tbl-counter, eq-counter
 #import "equation-settings.typ": equation-setting
 #import "figure-settings.typ": figure-setting, caption-setting
 #import "list-settings.typ": list-setting, enum-setting
@@ -117,14 +117,38 @@
     ]
   )
 
-  set math.equation(numbering: equation-numbering)
-  show math.equation: equation-setting
-
   show enum: enum-setting
   show list: list-setting
 
-  show figure.where(kind: image): set figure(numbering: image-numbering)
-  show figure.where(kind: table): set figure(numbering: table-numbering)
+  show math.equation: it => {
+    eq-counter.step()
+    it
+  }
+  set math.equation(numbering: it => {
+    let loc = here()
+    let chapter-counter = counter(heading).at(loc).at(0)
+    [#chapter-counter#""-#eq-counter.at(loc).at(0)]
+  })
+
+  show figure.where(kind: image): it => {
+    figure-img-counter.step()
+    it
+  }
+  show figure.where(kind: image): set figure(numbering: it => {
+    let loc = here()
+    let chapter-counter = counter(heading).at(loc).at(0)
+    [#chapter-counter#""-#figure-img-counter.at(loc).at(0)]
+  })
+
+  show figure.where(kind: table): it => {
+    figure-tbl-counter.step()
+    it
+  }
+  show figure.where(kind: table): set figure(numbering: it => {
+    let loc = here()
+    let chapter-counter = counter(heading).at(loc).at(0)
+    [#chapter-counter#""-#figure-tbl-counter.at(loc).at(0)]
+  })
 
   show figure: figure-setting
   show figure.caption: caption-setting
