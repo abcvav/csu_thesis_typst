@@ -1,4 +1,5 @@
 #import "../styles/font-settings.typ": font
+#set heading(numbering: it => h(-0.5em))
 
 #let title(body) = [
   #v(15pt)
