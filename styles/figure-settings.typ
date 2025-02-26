@@ -1,5 +1,4 @@
 #import "font-settings.typ": *
-#import "numbering.typ": image-numbering, table-numbering
 
 #let figure-setting(it) = {
   set figure.caption(separator: [#"  "])
