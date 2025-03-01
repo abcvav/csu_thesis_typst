@@ -121,7 +121,9 @@
   show list: list-setting
 
   show math.equation: it => {
-    eq-counter.step()
+    if it.block {
+      eq-counter.step()
+    }
     it
   }
   set math.equation(numbering: it => {
