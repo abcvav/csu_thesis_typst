@@ -123,8 +123,11 @@
   show math.equation: it => {
     if it.block {
       eq-counter.step()
+      it
+      par()[#text(size: 0em)[#h(0.0em)]]
+    } else {
+      it
     }
-    it
   }
   set math.equation(numbering: it => {
     let loc = here()
