@@ -132,7 +132,7 @@
   set math.equation(numbering: it => {
     let loc = here()
     let chapter-counter = counter(heading).at(loc).at(0)
-    [#chapter-counter#""-#eq-counter.at(loc).at(0)]
+    [(#chapter-counter#""-#eq-counter.at(loc).at(0))]
   })
 
   show figure.where(kind: image): it => {
