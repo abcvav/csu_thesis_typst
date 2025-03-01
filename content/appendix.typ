@@ -18,7 +18,7 @@
   table(columns: 2, align: center,
   [111],[2],
   [3],[4]),
-  caption: [I'm here]
+  caption: [I'm here1]
 )
 
 == 附录小节
