@@ -1,10 +1,9 @@
 #import "numbering.typ": appendix-numbering
+#import "global-counters.typ": figure-img-counter, figure-tbl-counter, eq-counter
 
 #let first-heading = state("first-heading", (:))
 #let last-heading = state("last-heading", (:))
-#let figure-img-counter = counter("figure-img")
-#let figure-tbl-counter = counter("figure-tbl")
-#let eq-counter = counter("equation")
+
 
 #let append-state(cur-heading) = {
   figure-img-counter.update(1)

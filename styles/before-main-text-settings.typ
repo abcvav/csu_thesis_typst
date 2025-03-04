@@ -1,6 +1,7 @@
 #import "numbering.typ": *
 #import "font-settings.typ": *
-#import "header-settings.typ": append-state, display-header, figure-img-counter, figure-tbl-counter, eq-counter
+#import "global-counters.typ": figure-img-counter, figure-tbl-counter, eq-counter
+#import "header-settings.typ": append-state, display-header
 #import "equation-settings.typ": equation-setting
 #import "figure-settings.typ": figure-setting, caption-setting
 #import "list-settings.typ": list-setting, enum-setting
@@ -120,15 +121,7 @@
   show enum: enum-setting
   show list: list-setting
 
-  show math.equation: it => {
-    if it.block {
-      eq-counter.step()
-      it
-      par()[#text(size: 0em)[#h(0.0em)]]
-    } else {
-      it
-    }
-  }
+  show math.equation: equation-setting
   set math.equation(numbering: it => {
     let loc = here()
     let chapter-counter = counter(heading).at(loc).at(0)
