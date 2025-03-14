@@ -103,10 +103,35 @@
     image("assets/example.png", width: 50%), // 50% / 1cm
     caption: [子图b],
   ),
-  caption: [子图ab],
+  caption: [横向子图ab],
 )
 
-通过 `@label-name` 的方式引用图表： @label1 表明...，而 @label2 表明...
+#subfig(
+  columns: 2,
+  rows: 2,
+  gutter: -10em,
+  row-gutter: 0em,
+  figure(
+    image("assets/example.png", width: 50%), // 50% / 1cm
+    caption: [子图a],
+  ),
+  figure(
+    image("assets/example.png", width: 50%), // 50% / 1cm
+    caption: [子图b],
+  ),
+  figure(
+    image("assets/example.png", width: 50%), // 50% / 1cm
+    caption: [子图c],
+  ),
+  figure(
+    image("assets/example.png", width: 50%), // 50% / 1cm
+    caption: [子图d],
+  ),
+  caption: [横纵向子图ab],
+  label: <subfig>
+)
+
+通过 `@label-name` 的方式引用图表：@label1 表明...，而@label2 表明，@subfig 表明...
 
 = 公式
 行间公式： $ sum_(k=1)^n k = (n(n+1)) / 2 $
