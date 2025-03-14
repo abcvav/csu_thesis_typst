@@ -12,8 +12,8 @@
 #import "../pages/outline.typ": csu-outline
 
 
-// 设置正文前面的部分
-#let before-main-text(cover-info: none, abstract-info: none, doc) = {
+// 设置正文格式
+#let main-text(cover-info: none, abstract-info: none, doc) = {
   set document(author: cover-info.作者姓名, date: datetime.today())
 
   set page(

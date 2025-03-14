@@ -1,4 +1,4 @@
-#import "styles/before-main-text-settings.typ": before-main-text
+#import "styles/main-text-settings.typ": main-text
 #import "styles/heading-settings.typ": back-page-heading
 
 #import "content/abstract-zh.typ": *
@@ -40,7 +40,7 @@
   content: content-en
 )
 
-#show: before-main-text.with(
+#show: main-text.with(
   cover-info: cover-info,
   abstract-info: (abstract-zh-info, abstract-en-info)
 )
