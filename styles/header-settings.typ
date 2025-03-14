@@ -1,14 +1,13 @@
-#import "numbering.typ": appendix-numbering
-#import "global-counters.typ": figure-img-counter, figure-tbl-counter, eq-counter
-
 #let first-heading = state("first-heading", (:))
 #let last-heading = state("last-heading", (:))
-
+#let algo-counter = counter("algo")
 
 #let append-state(cur-heading) = {
-  figure-img-counter.update(1)
-  figure-tbl-counter.update(1)
-  eq-counter.update(1)
+  counter(math.equation).update(0)
+  counter(figure.where(kind: image)).update(0)
+  counter(figure.where(kind: table)).update(0)
+
+  algo-counter.update(1)
 
   let page-num = here().page()
 

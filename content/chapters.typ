@@ -1,5 +1,7 @@
 #import "../styles/numbering.typ": main-text-numbering
 #import "../styles/heading-settings.typ": main-text-heading
+#import "../styles/font-settings.typ": font, font-size
+#import "../utils.typ": algo, subfig
 #set heading(numbering: main-text-numbering)
 #show heading: main-text-heading
 
@@ -89,6 +91,20 @@
   image("assets/example.png", width: 50%), // 50% / 1cm
   caption: [图像],
 ) <label2>
+
+#subfig(
+  columns: 2,
+  gutter: -10em,
+  figure(
+    image("assets/example.png", width: 50%), // 50% / 1cm
+    caption: [子图a],
+  ),
+  figure(
+    image("assets/example.png", width: 50%), // 50% / 1cm
+    caption: [子图b],
+  ),
+  caption: [子图ab],
+)
 
 通过 `@label-name` 的方式引用图表： @label1 表明...，而 @label2 表明...
 
