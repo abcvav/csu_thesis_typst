@@ -119,6 +119,9 @@
   show enum: enum-setting
   show list: list-setting
 
+  show table: set text(size: 9pt, font: font.Times + font.宋体)
+  show table.header: set text(size: 9pt, font: font.Times + font.宋体)
+
   let equation-numbering = super => numbering("(1-1)", counter(heading).get().first(), super)
   show math.equation: set math.equation(numbering: equation-numbering)
 
