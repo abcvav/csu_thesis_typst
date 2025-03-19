@@ -7,44 +7,52 @@
 > 目前暂未测试 Windows 下的结果
 
 ## 优劣势
-优势：
-- 图、表、参考文献自动编号。在摘要中自动完成数量的统计。正文格式已经按照论文模板要求的格式统一设计，只需要填写文本即可。
+优势：图、表、参考文献自动编号。在摘要中自动完成数量的统计。正文格式已经按照论文模板要求的格式统一设计，只需要填写文本即可。
 
-劣势：
-- 非官方模板，存在不被认可的可能。
+劣势：非官方模板，存在不被认可的可能。
 
 ## 教程
 
 ### 安装 Typst
+### 使用模板
 
+模板效果：见 `main.pdf`
+
+#### 方法1： 通过 vscode 插件直接编译运行
+- 用 `vscode` 打开项目，搜索插件 `Tinymist Typst` 并安装
+- `ctrl+,` 打开 vscode 的设置，搜索 `Tinymist: Typst Extra Args`，点击 `添加项` 并输入 `--font-path=fonts/`
+- 打开文件 `main.typ`
+- `ctrl+shift+p` 打开 `vscode` 命令行，执行命令 `Typst: Pin the Main file to the Opening Document` 如图所示：
+<img src='assets/image.png' width='80%'>
+- `vs code` 内分屏打开 `main.pdf` 即可实时查看输出结果
+
+#### 方法2：通过命令行运行
+
+首先需要安装 `typst`，方法如下：
 - 命令行安装
     - MacOS: `brew install typst`
     - Windows: `winget install --id Typst.Typst`
 - 手动安装
   - 来到 [typst releases](https://github.com/typst/typst/releases) 下，找到相应的版本并安装
+---
 
-### 使用模板
-
-模板效果：见 `main.pdf`
-
-- 用 `vscode` 打开项目，搜索插件 `Tinymist Typst` 并安装
-- 打开文件 `main.typ`
-- `ctrl+shift+p` 打开 `vscode` 命令行，执行命令 `Typst: Pin the Main file to the Opening Document`
-<img src='assets/image.png' width='80%'>
-
+安装完成后，按照以下步骤执行命令：
 - 快捷键 `ctrl + ~` 打开 `vs code` 的命令行
-- 执行 `typst watch main.typ --font-path=fonts`
-- `vs code` 内分屏打开 `main.pdf` 实时查看输出结果
+<!-- - 执行 `typst watch main.typ --font-path=fonts` -->
+- `vs code` 内分屏打开 `main.pdf` 即可实时查看输出结果
 
 > 编译后会出现大量字体不存在的警告，这是为了兼容 Windows 和 MacOS 的字体设置了一些冗余的字体名称。
+
+### 文件说明
 
 - 在 `main.typ` 的 `cover-info` 中填写个人信息
 - `content` 文件夹下
   - `abstract-zh.typ` 撰写摘要
   - `chapters.typ` 中撰写论文正文
+  - `appendix.typ` 填写附录信息
+  - `ref.bib` 中填写参考文献
 
 更多使用方法见模板内部的示例。
-
 
 ### 项目结构
 
