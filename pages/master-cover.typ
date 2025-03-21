@@ -31,6 +31,33 @@
     align(val-align)[#val]
   )
 ]
+
+#let cover-info-table(
+  一级学科,
+  二级学科,
+  作者姓名,
+  指导教师,
+) = [
+  #set text(
+    font: global-font, 
+    size: font-size.三号, 
+    weight: "thin"
+  )
+
+  #align(center)[
+    #let info-table = table.with(
+      columns: (1.5fr, 2.5fr),
+      inset: 0.725em,
+      stroke: none,
+      [一 级 学 科], [#一级学科],
+      [二 级 学 科], [#二级学科],
+      [作 者 姓 名], [#作者姓名],
+      [指 导 教 师], [#指导教师],
+    )
+    #show text: strong
+    #info-table()
+  ]
+]
   
 #let _student-info-table(
   作者姓名, 
@@ -53,25 +80,18 @@
       rows: (35pt,) * 7,
       inset: 0.725em,
       stroke: none,
-      [作 者 姓 名],
-      [#作者姓名],
-      [一 级 学 科],
-      [#一级学科],
-      [二 级 学 科],
-      [#二级学科],
-      [研 究 方 向], 
-      [#研究方向],
-      [二级培养单位], 
-      [#二级培养单位],
-      [指 导 教 师],
-      [#指导教师],
+      [作 者 姓 名], [#作者姓名],
+      [一 级 学 科], [#一级学科],
+      [二 级 学 科], [#二级学科],
+      [研 究 方 向], [#研究方向],
+      [二级培养单位], [#二级培养单位],
+      [指 导 教 师], [#指导教师],
     )
     #{
       if 副指导教师 == "" [#info-table()]
       else [
         #info-table(
-          [副指导教师], 
-          [#副指导教师])
+          [副指导教师], [#副指导教师])
       ]
     }
   ]
@@ -109,6 +129,29 @@
       bottom: 40pt,
     )
   )
+  #_bold-title(weight: "bold")[#(学位)学位论文]
+  #v(3em)
+  #_bold-title(font_: font.Times + font.黑体, size: font-size.二号, weight: "bold")[#论文名称]
+  #_bold-title(font_: font.Times, weight: "bold")[#论文英文名称]
+  #v(10em)
+  #cover-info-table(
+    一级学科,
+    二级学科,
+    作者姓名,
+    指导教师,
+  )
+  #place(
+    bottom + center,
+    dy: -3.5em,
+    [
+      #set text(font: global-font, size: font-size.小三, weight: "thin", stroke: 0.1pt)
+      #_date-info(年, 月)
+    ]
+  )
+
+  #pagebreak()
+  #pagebreak()
+
   #_paper-info("中图分类号", 中图分类号, key-width: 18%)
   #h(2.5fr)
   #_paper-info("学校代码", 学校代码, key-align: right) \ 
@@ -141,10 +184,17 @@
   #_paper-info("答辩委员会主席", 答辩委员会主席, key-align: right, val-width: 2fr)
 
   #v(89pt, weak: true)
-  #set text(font: global-font, size: font-size.小三, weight: "thin", stroke: 0.1pt)
-  #align(center)[#text(spacing: 450%, "中 南 大 学")]
-  #v(-8pt)
-  #_date-info(年, 月)
+
+  #place(
+    bottom + center,
+    dy: -4em,
+    [
+      #set text(font: global-font, size: font-size.小三, weight: "thin", stroke: 0.1pt)
+      #align(center)[#text(spacing: 450%, "中 南 大 学")]
+      #v(-8pt)
+      #_date-info(年, 月)
+    ]
+  )
 
   #pagebreak()
   #pagebreak()
