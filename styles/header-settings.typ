@@ -33,7 +33,13 @@
 }
 
 #let find-headings(headings, page-num) = if page-num > 0 {
-  headings.at(str(page-num), default: find-headings(headings, page-num - 1))
+  headings.at(str(page-num), default: {
+    let arr = headings.keys()
+    if arr.len() == 0{
+      return
+    }
+    headings.at(arr.last())
+  })
 }
 
 #let display-header() = {
