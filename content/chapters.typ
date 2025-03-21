@@ -1,7 +1,7 @@
 #import "../styles/numbering.typ": main-text-numbering
 #import "../styles/heading-settings.typ": main-text-heading
 #import "../styles/font-settings.typ": font, font-size
-#import "../utils.typ": algo, subfig
+#import "../utils.typ": myalgo, subfig
 #set heading(numbering: main-text-numbering)
 #show heading: main-text-heading
 

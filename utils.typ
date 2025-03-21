@@ -2,7 +2,7 @@
 #import "styles/header-settings.typ": algo-counter
 #import "styles/font-settings.typ": font, font-size
 
-#let algo(..children) = {
+#let myalgo(..children) = {
    align(center, grid(
     stroke: (left: none, right: none, bottom: black, top: black), 
     inset: 5pt,
