@@ -31,7 +31,7 @@
   // 这一行分别是「Arial（无衬线英文字体）」、「黑体（Windows）」、「黑体（MacOS）」
   黑体: ("Arial", "Source Han Sans SC", "SimHei", "Heiti SC", "STHeiti"),
   // 楷体
-  楷体: ("KaiTi", "Kaiti SC", "STKaiti", "FZKai-Z03S", "Noto Serif CJK SC"),
+  楷体: ("KaiTi", ),
   // 仿宋
   仿宋: ("FangSong", "FangSong SC", "STFangSong", "FZFangSong-Z02S", "Noto Serif CJK SC"),
   // 等宽字体，用于代码块环境，一般可以等同于英文中的 Monospaced Font
