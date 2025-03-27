@@ -33,13 +33,6 @@
 }
 
 #let continued-header(colspan: none, ..children) = {
-  let bold-children = {
-    let cd = ()
-    for c in children.pos() {
-      cd.push(text(weight: "bold", c))
-    }
-    cd
-  }
   table.header(
     repeat: true,
     table.cell(colspan: colspan, {
@@ -51,7 +44,7 @@
       }
     }),
     table.hline(),
-    ..bold-children,
+    ..children,
     table.hline(),
   )
 }

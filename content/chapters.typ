@@ -73,7 +73,7 @@
     align: center + horizon,
     stroke: none,
     table.hline(),
-    table.header([加粗表头1], [加粗表头2], [加粗表头3]),
+    table.header([*加粗表头1*], [*加粗表头2*], [不加粗表头3]),
     table.hline(),
     table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
     [表项5], [表项6],
@@ -115,18 +115,13 @@
     stroke: none,
     continued-header(
       colspan: 3,
-      [加粗表头1], [加粗表头2], [加粗表头3]
+      [表头1], [表头2], [表头3]
     ),
-    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
-    [表项5], [表项6],
-    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
-    [表项5], [表项6],
-    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
-    [表项5], [表项6],
-    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
-    [表项5], [表项6],
-    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
-    [表项5], [表项6],
+    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3], [表项4], [表项5],
+    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3], [表项4], [表项5],
+    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3], [表项4], [表项5],
+    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3], [表项4], [表项5],
+    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3], [表项4], [表项5],
     table.hline(),
   ),
   caption: [跨页三线表]
