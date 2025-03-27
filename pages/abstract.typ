@@ -68,7 +68,7 @@
 
   #en_header("Keywords: ")#_display-words(keywords, semicolon: ";")
 
-  #en_header("Classification: ")#_display-words(classification)
+  #en_header("Classification: ")#_display-words(classification, semicolon: ";")
 
   #pagebreak()
 ]
