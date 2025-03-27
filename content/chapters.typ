@@ -1,7 +1,7 @@
 #import "../styles/numbering.typ": main-text-numbering
 #import "../styles/heading-settings.typ": main-text-heading
 #import "../styles/font-settings.typ": font, font-size
-#import "../utils.typ": myalgo, subfig
+#import "../utils.typ": myalgo, subfig, continued-header
 #set heading(numbering: main-text-numbering)
 #show heading: main-text-heading
 
@@ -28,7 +28,7 @@
 
 #figure(
   table(
-    columns: 3, 
+    columns: 3,
     align: center,
     table.hline(),
     table.header([表头1], [表头2], [表头3]),
@@ -47,7 +47,7 @@
     columns: (4cm, auto, auto),
     align: center + horizon,
     [你好], [你好], [你好],
-    table.cell(rowspan: 2)[跨行表项, 指定 `align: horizon` 垂直居中], [表头], [表项], 
+    table.cell(rowspan: 2)[跨行表项, 指定 `align: horizon` 垂直居中], [表头], [表项],
     [表项], [表项]
   ),
   caption: [跨行表]
@@ -55,7 +55,7 @@
 
 #figure(
   table(
-    columns: (3cm, 3cm, 5cm), 
+    columns: (3cm, 3cm, 5cm),
     align: center,
     table.hline(),
     table.header([设定columns的长度后], [表头标题超过该长度], [就会自动换行]),
@@ -69,11 +69,11 @@
 
 #figure(
   table(
-    columns: 3, 
-    align: center,
+    columns: 3,
+    align: center + horizon,
     stroke: none,
     table.hline(),
-    table.header([*加粗表头1*], [*加粗表头2*], [*加粗表头3*]),
+    table.header([加粗表头1], [加粗表头2], [加粗表头3]),
     table.hline(),
     table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
     [表项5], [表项6],
@@ -81,6 +81,7 @@
   ),
   caption: [三线表]
 )
+
 
 #figure(
   image("assets/example.png", width: 50%), // 50% / 1cm
@@ -105,6 +106,31 @@
   ),
   caption: [横向子图ab],
 )
+
+#[
+#figure(
+  table(
+    columns: 3,
+    align: center + horizon,
+    stroke: none,
+    continued-header(
+      colspan: 3,
+      [加粗表头1], [加粗表头2], [加粗表头3]
+    ),
+    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
+    [表项5], [表项6],
+    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
+    [表项5], [表项6],
+    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
+    [表项5], [表项6],
+    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
+    [表项5], [表项6],
+    table.cell(rowspan: 2)[跨行表项1],[表项2], [表项3],
+    [表项5], [表项6],
+    table.hline(),
+  ),
+  caption: [跨页三线表]
+)]
 
 #subfig(
   columns: 2,

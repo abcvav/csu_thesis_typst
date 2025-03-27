@@ -10,12 +10,14 @@
 #import "../pages/outline.typ": csu-outline
 
 
+#let continued-header-state = state("cheader")
+
 // 设置正文格式
 #let main-text(cover-info: none, abstract-info: none, doc) = {
   set document(author: cover-info.作者姓名, date: datetime.today())
 
   set page(
-    paper: "a4", 
+    paper: "a4",
     margin: (
       top: 91pt,
       bottom: 85pt,
@@ -33,7 +35,6 @@
     stroke: 0.1pt
   )
 
-  show strong: set text(stroke: 0.6pt)
 
   // 封面信息填写
   master-cover(
@@ -44,16 +45,16 @@
     学位类别: cover-info.学位类别,
     论文名称: cover-info.论文名称,
     论文英文名称: cover-info.论文英文名称,
-    作者姓名: cover-info.作者姓名, 
+    作者姓名: cover-info.作者姓名,
     一级学科: cover-info.一级学科,
     二级学科: cover-info.二级学科,
     研究方向: cover-info.研究方向,
     二级培养单位: cover-info.二级培养单位,
     指导教师: cover-info.指导教师,
     副指导教师: cover-info.副指导教师,
-    答辩日期: cover-info.答辩日期, 
-    答辩委员会主席: cover-info.答辩委员会主席, 
-    年: cover-info.年, 
+    答辩日期: cover-info.答辩日期,
+    答辩委员会主席: cover-info.答辩委员会主席,
+    年: cover-info.年,
     月: cover-info.月
   )
 
@@ -82,7 +83,7 @@
   let (abstract-zh-info, abstract-en-info) = abstract-info
   // TODO 还需要测试两行的标题间距
   abstract-zh-page(
-    title: cover-info.论文名称, 
+    title: cover-info.论文名称,
     keywords: abstract-zh-info.keywords,
     classification: abstract-zh-info.classification,
     abstract-zh-info.content
@@ -90,7 +91,7 @@
 
   // 英文摘要
   abstract-en-page(
-    title: cover-info.论文英文名称, 
+    title: cover-info.论文英文名称,
     keywords: abstract-en-info.keywords,
     classification: abstract-en-info.classification,
     abstract-en-info.content,
@@ -120,7 +121,8 @@
   show list: list-setting
 
   show table: set text(size: font-size.五号, font: font.Times + font.宋体)
-  show table.header: set text(size: font-size.五号, font: font.Times + font.宋体)
+  show table.header: set text(size: font-size.五号, weight: "bold", font: font.Times + font.宋体)
+  show table.cell.where(y: 0): set text(black, weight: "bold", font: font.Times + font.宋体)
 
   let equation-numbering = super => numbering("(1-1)", counter(heading).get().first(), super)
   show math.equation: set math.equation(numbering: equation-numbering)
@@ -128,6 +130,11 @@
   let figure-numbering = super => numbering("1-1", counter(heading).get().first(), super)
   show figure: set figure(numbering: figure-numbering)
 
+  show figure: set block(breakable: true)
+  show table: it => {
+    continued-header-state.update(false)
+    it
+  }
   show figure: figure-setting
   show figure.caption: caption-setting
 
