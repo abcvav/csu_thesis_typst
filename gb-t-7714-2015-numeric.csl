@@ -44,9 +44,9 @@
     </terms>
   </locale>
   <!-- 引用日期 -->
-  <!-- <macro name="accessed-date">
+  <macro name="accessed-date">
     <date variable="accessed" form="numeric" prefix="[" suffix="]"/>
-  </macro> -->
+  </macro>
   <!-- 主要责任者 -->
   <macro name="author">
     <names variable="author">
@@ -308,20 +308,20 @@
           <text value="Z"/>
         </else>
       </choose>
-      <!-- <choose>
+      <choose>
         <if variable="URL DOI" match="any">
           <text value="OL"/>
         </if>
-      </choose> -->
+      </choose>
     </group>
   </macro>
   <!-- 获取和访问路径以及 DOI -->
-  <!-- <macro name="url-doi">
+  <macro name="url-doi">
     <group delimiter=". ">
       <text variable="URL"/>
       <text variable="DOI" prefix="DOI:"/>
     </group>
-  </macro> -->
+  </macro>
   <!-- 连续出版物的年卷期 -->
   <macro name="year-volume-issue">
     <group>
