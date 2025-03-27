@@ -121,8 +121,8 @@
   show list: list-setting
 
   show table: set text(size: font-size.五号, font: font.Times + font.宋体)
-  show table.header: set text(size: font-size.五号, weight: "bold", font: font.Times + font.宋体)
-  show table.cell.where(y: 0): set text(black, weight: "bold", font: font.Times + font.宋体)
+  show table.header: set text(weight: "bold")
+  show table.cell.where(y: 0): set text(weight: "bold")
 
   let equation-numbering = super => numbering("(1-1)", counter(heading).get().first(), super)
   show math.equation: set math.equation(numbering: equation-numbering)
