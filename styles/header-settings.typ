@@ -1,11 +1,10 @@
-#let first-heading = state("first-heading", (:))
-#let last-heading = state("last-heading", (:))
-#let algo-counter = counter("algo")
+#import "globals.typ": first-heading, last-heading, algo-counter, eq-counter
 
 #let append-state(cur-heading) = {
-  counter(math.equation).update(0)
   counter(figure.where(kind: image)).update(0)
   counter(figure.where(kind: table)).update(0)
+  eq-counter.step()
+  eq-counter.step(level: 2)
 
   algo-counter.update(1)
 
@@ -24,7 +23,7 @@
   })
   first-heading.update(item => {
     let k = str(page-num)
-    if k  not in item {
+    if k not in item {
       item.insert(k, final-header)
     }
     item
@@ -52,9 +51,9 @@
   let page-num = here().page()
 
   let last-headings = last-heading.at(here())
-  
+
   // 找当前页
   let cur-heading = first-headings.at(str(page-num), default: find-headings(last-headings, page-num))
-  
+
   cur-heading
 }

@@ -1,7 +1,7 @@
 #import "../styles/numbering.typ": main-text-numbering
 #import "../styles/heading-settings.typ": main-text-heading
 #import "../styles/font-settings.typ": font, font-size
-#import "../utils.typ": myalgo, subfig, continued-header
+#import "../utils.typ": myalgo, subfig, continued-header, emptypar, subeqs
 #set heading(numbering: main-text-numbering)
 #show heading: main-text-heading
 
@@ -161,6 +161,32 @@
 公式符号表可参考链接：#link("https://typst.app/docs/reference/symbols/sym/", text(fill: blue, "Symbols General"))
 
 
+行间公式： $ sum_(k=1)^n k = (n(n+1)) / 2 $
+
+行间公式后不顶格。行间公式后不顶格。行间公式后不顶格。行间公式后不顶格。行间公式后不顶格。行间公式后不顶格。行间公式后不顶格。行间公式后不顶格。行间公式后不顶格。行间公式后不顶格。行间公式后不顶格。行间公式后不顶格。行间公式后不顶格。行间公式后不顶格。
+
+行间公式： $ sum_(k=1)^n k = (n(n+1)) / 2 $
+
+#emptypar()
+
+行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。行间公式后顶格。
+
+子公式1：
+
+#subeqs(
+  $ sum_(k=1)^n k = (n(n+1)) / 2 $,
+  $ f(x)= sin(x) $,
+  $ g(x)= cos(x) $,
+)
+
+#emptypar()
+
+子公式2：
+#subeqs(
+  $ sum_(k=1)^n k = (n(n+1)) / 2 $,
+  $ f(x)= sin(x) $,
+  $ g(x)= cos(x) $,
+)
 
 = 文献引用
 

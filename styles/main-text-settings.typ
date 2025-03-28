@@ -8,9 +8,8 @@
 #import "../pages/statement.typ": statement-page
 #import "../pages/abstract.typ": *
 #import "../pages/outline.typ": csu-outline
+#import "globals.typ": eq-counter, continued-header-state
 
-
-#let continued-header-state = state("cheader")
 
 // 设置正文格式
 #let main-text(cover-info: none, abstract-info: none, doc) = {
@@ -34,7 +33,6 @@
     size: font-size.小四,
     stroke: 0.1pt
   )
-
 
   // 封面信息填写
   master-cover(
@@ -121,10 +119,17 @@
   show list: list-setting
 
   show table: set text(size: font-size.五号, font: font.Times + font.宋体)
-  show strong: set text(weight: "bold")
 
-  let equation-numbering = super => numbering("(1-1)", counter(heading).get().first(), super)
-  show math.equation: set math.equation(numbering: equation-numbering)
+  set math.equation(numbering: it => eq-counter.display("(1-1-a)"))
+
+  show math.equation.where(block: true): it=>{
+    it
+    if it.numbering != none{
+      if eq-counter.get().len() == 2{
+        eq-counter.step(level: 2)
+      }
+    }
+  }
 
   let figure-numbering = super => numbering("1-1", counter(heading).get().first(), super)
   show figure: set figure(numbering: figure-numbering)

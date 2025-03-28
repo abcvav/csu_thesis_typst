@@ -2,6 +2,8 @@
 #import "styles/header-settings.typ": algo-counter
 #import "styles/font-settings.typ": font, font-size
 #import "styles/main-text-settings.typ": continued-header-state
+#import "styles/globals.typ": eq-counter
+
 
 #let myalgo(..children) = {
    align(center, grid(
@@ -32,6 +34,7 @@
   _subfig(..args)
 }
 
+
 #let continued-header(colspan: none, ..children) = {
   table.header(
     repeat: true,
@@ -48,3 +51,15 @@
     table.hline(),
   )
 }
+
+
+#let subeqs(..args)={
+  for eq in args.pos(){
+    eq-counter.step(level: 3)
+    eq
+  }
+  eq-counter.step(level: 2)
+}
+
+
+#let emptypar()= par()[#text(size: 0em)[#h(0.0em)]]
