@@ -118,7 +118,7 @@
   show enum: enum-setting
   show list: list-setting
 
-  show table: set text(size: font-size.五号, font: font.Times + font.宋体)
+  show table: set text(size: font-size.五号, font: global-font)
 
   set math.equation(numbering: it => eq-counter.display("(1-1-a)"))
 
@@ -139,6 +139,7 @@
     continued-header-state.update(false)
     it
   }
+  set strong(delta: 600)
   show figure: figure-setting
   show figure.caption: caption-setting
 

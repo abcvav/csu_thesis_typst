@@ -39,8 +39,8 @@
   指导教师,
 ) = [
   #set text(
-    font: global-font, 
-    size: font-size.三号, 
+    font: global-font,
+    size: font-size.三号,
     weight: "thin"
   )
 
@@ -54,23 +54,23 @@
       [作 者 姓 名], [#作者姓名],
       [指 导 教 师], [#指导教师],
     )
-    #show text: strong
+    #show text: strong.with(delta: 600)
     #info-table()
   ]
 ]
-  
+
 #let _student-info-table(
-  作者姓名, 
+  作者姓名,
   一级学科,
   二级学科,
   研究方向,
   二级培养单位,
   指导教师,
-  副指导教师 
+  副指导教师
 ) = [
   #set text(
-    font: global-font, 
-    size: font-size.三号, 
+    font: global-font,
+    size: font-size.三号,
     weight: "thin"
   )
 
@@ -111,16 +111,16 @@
   学位类别: "专业学位",
   论文名称: "学位论文中文题名",
   论文英文名称: "学位论文英文题名",
-  作者姓名: "XXX", 
+  作者姓名: "XXX",
   一级学科: "一级学科名称",
   二级学科: "二级学科名称",
   研究方向: "关键词组",
   二级培养单位: "XXX",
   指导教师: "导师姓名",
   副指导教师: "",
-  答辩日期: "", 
-  答辩委员会主席: "", 
-  年: "XXXX", 
+  答辩日期: "",
+  答辩委员会主席: "",
+  年: "XXXX",
   月: "XX"
 ) = [
   #set page(
@@ -154,7 +154,7 @@
 
   #_paper-info("中图分类号", 中图分类号, key-width: 18%)
   #h(2.5fr)
-  #_paper-info("学校代码", 学校代码, key-align: right) \ 
+  #_paper-info("学校代码", 学校代码, key-align: right) \
   #v(3.9pt, weak: true)
   #_paper-info("UDC", UDC, key-width: 18%)
   #h(2.5fr)
@@ -178,7 +178,7 @@
     副指导教师,
   )
   #v(38pt, weak: true)
-  
+
   #_paper-info("论文答辩日期", 答辩日期, key-align: right, val-width: 3.5fr)
   #h(1fr)
   #_paper-info("答辩委员会主席", 答辩委员会主席, key-align: right, val-width: 2fr)
