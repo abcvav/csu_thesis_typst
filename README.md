@@ -25,12 +25,11 @@
 #### 方法1： 通过 vscode 插件直接编译运行
 - 用 `vscode` 打开项目，搜索插件 `Tinymist Typst` 并安装
 - 快捷键 `ctrl+,` 打开 vscode 的设置。搜索 `Tinymist: Typst Extra Args`，点击 `添加项` 并输入 `--font-path=fonts/`
-
-<img src='assets/extraArgs.png' width='80%'>
+<img src='assets/extraArgs.png' width='60%'>
 
 - 打开文件 `main.typ`
 - `ctrl+shift+p` 打开 `vscode` 命令行，执行命令 `Typst: Pin the Main file to the Opening Document` 如图所示：
-<img src='assets/image.png' width='80%'>
+<img src='assets/image.png' width='60%'>
 
 - `vs code` 内分屏打开 `main.pdf` 即可实时查看输出结果
 
