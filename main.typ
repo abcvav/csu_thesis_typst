@@ -40,9 +40,11 @@
   content: content-en
 )
 
+
 #show: main-text.with(
   cover-info: cover-info,
-  abstract-info: (abstract-zh-info, abstract-en-info)
+  abstract-info: (abstract-zh-info, abstract-en-info),
+  show-notation-page: true   // 是否显示符号说明页
 )
 
 // 章节正文
