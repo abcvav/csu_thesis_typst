@@ -9,10 +9,11 @@
 #import "../pages/abstract.typ": *
 #import "../pages/outline.typ": csu-outline
 #import "globals.typ": eq-counter, continued-header-state
+#import "../pages/notation-explain.typ": notation-explain-page
 
 
 // 设置正文格式
-#let main-text(cover-info: none, abstract-info: none, doc) = {
+#let main-text(cover-info: none, abstract-info: none, show-notation-page: false, doc) = {
   set document(author: cover-info.作者姓名, date: datetime.today())
 
   set page(
@@ -97,6 +98,9 @@
 
   // 目录页
   csu-outline()
+  if show-notation-page {
+    notation-explain-page()
+  }
 
   counter(page).update(1)
   set page(
