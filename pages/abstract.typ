@@ -32,7 +32,7 @@
 
   #let pic-num = context query(figure.where(kind: image)).dedup().len()
   #let table-num = context query(figure.where(kind: table)).dedup().len()
-  #let bib-num = context query(ref.where(element: none)).dedup().len() // FIXME 不确定此处的计算是否有 bug
+  #let bib-num = context query(ref.where(element: none)).dedup().len()
 
   #h(-2em)图#(pic-num)幅，表#(table-num)个，参考文献#(bib-num)篇
 
