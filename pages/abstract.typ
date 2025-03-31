@@ -3,7 +3,7 @@
 #let _display-words(words, semicolon: "；") = {
   for word in words {
     if word == words.last() {
-      [#word] 
+      [#word]
     }
     else {
       [#word#semicolon ]
