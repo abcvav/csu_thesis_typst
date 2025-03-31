@@ -31,6 +31,7 @@
 - 打开文件 `main.typ`
 - `ctrl+shift+p` 打开 `vscode` 命令行，执行命令 `Typst: Pin the Main file to the Opening Document` 如图所示：
 <img src='assets/image.png' width='80%'>
+
 - `vs code` 内分屏打开 `main.pdf` 即可实时查看输出结果
 
 #### 方法2：通过命令行运行
