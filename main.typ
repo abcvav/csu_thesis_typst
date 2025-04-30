@@ -1,5 +1,6 @@
 #import "styles/main-text-settings.typ": main-text
 #import "styles/heading-settings.typ": back-page-heading
+#import "styles/bilingual-bibliography.typ": bilingual-bibliography
 
 #import "content/abstract-zh.typ": *
 #import "content/abstract-en.typ": *
@@ -54,7 +55,7 @@
 #show heading: back-page-heading
 
 // 参考文献
-#bibliography("ref.bib", style: "gb-t-7714-2015-numeric.csl")
+#bilingual-bibliography(bibliography: bibliography.with("ref.bib"))
 
 #set heading(numbering: it => {})
 
