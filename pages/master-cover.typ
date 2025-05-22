@@ -144,7 +144,7 @@
     bottom + center,
     dy: -3.5em,
     [
-      #set text(font: global-font, size: font-size.小三, weight: "thin", stroke: 0.1pt)
+      #set text(font: global-font, size: font-size.小三, weight: "thin")
       #_date-info(年, 月)
     ]
   )
@@ -189,7 +189,7 @@
     bottom + center,
     dy: -4em,
     [
-      #set text(font: global-font, size: font-size.小三, weight: "thin", stroke: 0.1pt)
+      #set text(font: global-font, size: font-size.小三, weight: "thin")
       #align(center)[#text(spacing: 450%, "中 南 大 学")]
       #v(-8pt)
       #_date-info(年, 月)

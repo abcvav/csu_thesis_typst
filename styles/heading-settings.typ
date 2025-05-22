@@ -5,7 +5,6 @@
     set align(center)
     set text(
       size: font-size.三号, 
-      stroke: 0.1pt, 
       font: font.Times + font.黑体
     )
     pagebreak(weak: true)
@@ -17,7 +16,6 @@
       size: font-size.四号, 
       weight: "thin", 
       font: global-font,
-      stroke: 0.1pt
     )
     v(2.5pt)
     it
@@ -34,7 +32,6 @@
     set align(center)
     set text(
       size: font-size.三号, 
-      stroke: 0.1pt, 
       font: font.Times + font.黑体
     )
     pagebreak()
@@ -46,7 +43,6 @@
       size: font-size.四号, 
       weight: "thin", 
       font: global-font,
-      stroke: 0.1pt
     )
     v(2.5pt)
     it

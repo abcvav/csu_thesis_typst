@@ -22,7 +22,7 @@
 
   #v(26pt)
 
-  #set text(font: global-font, size: font-size.四号, stroke: 0.1pt)
+  #set text(font: global-font, size: font-size.四号)
 
   #set par(leading: 0.7em)
 
@@ -58,7 +58,7 @@
 
   #let en_header = _header.with(font: font.Times)
 
-  #set text(font: global-font, size: font-size.四号, stroke: 0.1pt)
+  #set text(font: global-font, size: font-size.四号)
 
   #set par(leading: 11.5pt)
 

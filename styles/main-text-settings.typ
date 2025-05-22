@@ -32,7 +32,6 @@
     region: "cn",
     weight: "thin",
     size: font-size.小四,
-    stroke: 0.1pt
   )
 
   // 封面信息填写
