@@ -59,7 +59,7 @@
   set par(
     justify: true,          // 两端对齐
     first-line-indent: 2em, // 段前顶格两字符
-    leading: 1em,           // 行距 20 磅
+    leading: 0.9em,           // 行距 20 磅
     spacing: 1em            // 段间距
   )
 

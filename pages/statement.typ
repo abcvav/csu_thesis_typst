@@ -1,23 +1,23 @@
 #import "../styles/font-settings.typ": *
 
 #let statement-page() = [
-  #set page(
-    margin: (
-      top: 75pt,
-      bottom: 75pt,
-    )
+#set page(
+  margin: (
+    top: 75pt,
+    bottom: 75pt,
   )
-  #set par(
-    leading: 10.2pt,
-    spacing: 1em
-  )
-  #set text(font: global-font, size: font-size.四号, stroke: 0.2pt)
+)
+#set par(
+  leading: 7pt,
+  spacing: 1em,
+)
+#set text(font: global-font, size: font-size.四号, )
 
-  #let title(body) = [
-    #align(center)[#text(font: font.新魏, size: font-size.二号, body, stroke: 0.3pt)]
-  ]
-  #let boxunderline(width) = box(width: width, stroke: (bottom: black), baseline: 30%)[#""]
-  #let checkbox(size) = box(width: size, height: size, stroke: (0.25mm + black))[#""]
+#let title(body) = [
+  #align(center)[#text(font: font.新魏, size: font-size.二号, body)]
+]
+#let boxunderline(width) = box(width: width, stroke: (bottom: black), baseline: 30%)[#""]
+#let checkbox(size) = box(width: size, height: size, stroke: (0.25mm + black))[#""]
 
 #title("学位论文原创性声明")
 
