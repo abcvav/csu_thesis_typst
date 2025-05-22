@@ -26,10 +26,10 @@
   Times: ("Times New Roman", ),
   // 宋体，属于「有衬线字体」，一般可以等同于英文中的 Serif Font
   // 这一行分别是「新罗马体（有衬线英文字体）」「宋体（Windows）」、「宋体（MacOS）」
-  宋体: ("SimSun", "Songti SC", "STSongti"),
+  宋体: ("SimSun", "Songti SC", ),
   // 黑体，属于「无衬线字体」，一般可以等同于英文中的 Sans Serif Font
   // 这一行分别是「Arial（无衬线英文字体）」、「黑体（Windows）」、「黑体（MacOS）」
-  黑体: ("Arial", "Source Han Sans SC", "SimHei", "Heiti SC", "STHeiti"),
+  黑体: ("Arial", "SimHei", "Heiti SC", ),
   // 楷体
   楷体: ("KaiTi", ),
   // 仿宋
